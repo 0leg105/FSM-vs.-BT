@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://br485uyskiofn"]
+
+[ext_resource type="Script" path="res://Scripts/Decisionsystems/Finite State Machine/Enemy/EnemyStates/alert.gd" id="1_1vufy"]
+
+[node name="Alert" type="Node"]
+script = ExtResource("1_1vufy")

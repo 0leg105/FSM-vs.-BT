@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://hfhb3mug3ebt"]
+
+[ext_resource type="Script" path="res://Scripts/Decisionsystems/Finite State Machine/Enemy/EnemyStates/shoot.gd" id="1_1s3cw"]
+
+[node name="Shoot" type="Node"]
+script = ExtResource("1_1s3cw")

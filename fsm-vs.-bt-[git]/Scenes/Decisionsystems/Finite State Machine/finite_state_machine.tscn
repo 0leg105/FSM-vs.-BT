@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://dpf60xpbej4cj"]
+
+[ext_resource type="Script" path="res://Scripts/Decisionsystems/Finite State Machine/finite_state_machine.gd" id="1_bpsv2"]
+
+[node name="Finite State Machine" type="Node"]
+script = ExtResource("1_bpsv2")

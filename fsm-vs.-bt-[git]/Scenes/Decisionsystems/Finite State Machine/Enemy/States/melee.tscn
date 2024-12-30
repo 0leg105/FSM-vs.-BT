@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://bv37asx32gdul"]
+
+[ext_resource type="Script" path="res://Scripts/Decisionsystems/Finite State Machine/Enemy/EnemyStates/melee.gd" id="1_7un30"]
+
+[node name="Melee" type="Node"]
+script = ExtResource("1_7un30")

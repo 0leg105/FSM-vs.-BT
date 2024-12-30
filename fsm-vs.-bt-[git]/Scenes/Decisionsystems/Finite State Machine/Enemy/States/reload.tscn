@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://by1jgu4v3xcee"]
+
+[ext_resource type="Script" path="res://Scripts/Decisionsystems/Finite State Machine/Enemy/EnemyStates/reload.gd" id="1_pty4i"]
+
+[node name="Reload" type="Node"]
+script = ExtResource("1_pty4i")

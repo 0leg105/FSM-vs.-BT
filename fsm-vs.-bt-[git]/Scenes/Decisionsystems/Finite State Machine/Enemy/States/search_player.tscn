@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://ccjluwdoh5l10"]
+
+[ext_resource type="Script" path="res://Scripts/Decisionsystems/Finite State Machine/Enemy/EnemyStates/search_player.gd" id="1_7k1px"]
+
+[node name="SearchPlayer" type="Node"]
+script = ExtResource("1_7k1px")

@@ -1,0 +1,7 @@
+[gd_scene load_steps=2 format=3 uid="uid://cnew2hng84wd7"]
+
+[ext_resource type="Script" path="res://Script/Finite State Machine/fsm_visualizer.gd" id="1_qcgpm"]
+
+[node name="FSM Visualizer" type="Node2D"]
+position = Vector2(1144, 615)
+script = ExtResource("1_qcgpm")

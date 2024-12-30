@@ -1,3 +1,8 @@
-[gd_scene format=3 uid="uid://cmkl0oi88a0ax"]
+[gd_scene load_steps=2 format=3 uid="uid://cmkl0oi88a0ax"]
+
+[ext_resource type="PackedScene" uid="uid://drypu37fxyp3f" path="res://Scenes/NPC/fsm_npc.tscn" id="1_fakan"]
 
 [node name="FSM vs_ BT DEMO" type="Node2D"]
+
+[node name="FSM NPC" parent="." instance=ExtResource("1_fakan")]
+position = Vector2(195, 134)

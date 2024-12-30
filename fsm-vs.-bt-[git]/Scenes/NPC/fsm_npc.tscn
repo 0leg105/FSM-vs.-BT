@@ -1,0 +1,40 @@
+[gd_scene load_steps=11 format=3 uid="uid://drypu37fxyp3f"]
+
+[ext_resource type="Texture2D" uid="uid://3srsto0k3gej" path="res://textures/icon.svg" id="1_4q2jo"]
+[ext_resource type="PackedScene" uid="uid://dioqirosh06ud" path="res://Scenes/Decisionsystems/Finite State Machine/Enemy/enemy_finite_state_machine.tscn" id="2_fx4d1"]
+[ext_resource type="PackedScene" uid="uid://bohilm24n28vt" path="res://Scenes/Decisionsystems/Finite State Machine/Enemy/States/idle.tscn" id="3_ttqmh"]
+[ext_resource type="PackedScene" uid="uid://br485uyskiofn" path="res://Scenes/Decisionsystems/Finite State Machine/Enemy/States/alert.tscn" id="4_eymyp"]
+[ext_resource type="PackedScene" uid="uid://by1jgu4v3xcee" path="res://Scenes/Decisionsystems/Finite State Machine/Enemy/States/reload.tscn" id="5_5vebs"]
+[ext_resource type="PackedScene" uid="uid://bv37asx32gdul" path="res://Scenes/Decisionsystems/Finite State Machine/Enemy/States/melee.tscn" id="6_fgwho"]
+[ext_resource type="PackedScene" uid="uid://hfhb3mug3ebt" path="res://Scenes/Decisionsystems/Finite State Machine/Enemy/States/shoot.tscn" id="7_r4yuh"]
+[ext_resource type="PackedScene" uid="uid://ccjluwdoh5l10" path="res://Scenes/Decisionsystems/Finite State Machine/Enemy/States/search_player.tscn" id="8_tnvut"]
+[ext_resource type="PackedScene" uid="uid://xm1lsgwpyxx6" path="res://Scenes/Decisionsystems/Finite State Machine/Enemy/States/move_to_cover.tscn" id="9_3a5ir"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_bu6c3"]
+size = Vector2(129, 128)
+
+[node name="FSM NPC" type="CharacterBody2D"]
+scale = Vector2(0.25, 0.25)
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_4q2jo")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-0.5, 0)
+shape = SubResource("RectangleShape2D_bu6c3")
+
+[node name="Enemy Finite State Machine" parent="." instance=ExtResource("2_fx4d1")]
+
+[node name="Idle" parent="Enemy Finite State Machine" instance=ExtResource("3_ttqmh")]
+
+[node name="Alert" parent="Enemy Finite State Machine" instance=ExtResource("4_eymyp")]
+
+[node name="Reload" parent="Enemy Finite State Machine" instance=ExtResource("5_5vebs")]
+
+[node name="Melee" parent="Enemy Finite State Machine" instance=ExtResource("6_fgwho")]
+
+[node name="Shoot" parent="Enemy Finite State Machine" instance=ExtResource("7_r4yuh")]
+
+[node name="Search Player" parent="Enemy Finite State Machine" instance=ExtResource("8_tnvut")]
+
+[node name="Move To Cover" parent="Enemy Finite State Machine" instance=ExtResource("9_3a5ir")]

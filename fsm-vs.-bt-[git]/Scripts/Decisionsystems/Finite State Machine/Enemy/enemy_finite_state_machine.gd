@@ -1,0 +1,2 @@
+extends FiniteStateMachine
+class_name EnemyFiniteStateMachine
