@@ -2,10 +2,11 @@ extends Component
 class_name MoveComponent
 
 @onready var nav_agent_2d: NavigationAgent2D = $NavigationAgent2D
-const SPEED: float = 4
+const SPEED: float = 100
 var next_pos: Vector2 = Vector2.ZERO
 	
 func go_to_position(pos: Vector2 = next_pos) -> void:
+	print(pos)
 	var current_location = character_body.global_transform.origin
 	nav_agent_2d.set_target_position(pos)
 	var next_position = nav_agent_2d.get_next_path_position()

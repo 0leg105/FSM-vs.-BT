@@ -36,11 +36,11 @@ script = ExtResource("2_iywdf")
 
 [node name="Alert" parent="Enemy Finite State Machine" instance=ExtResource("4_eymyp")]
 
-[node name="Shoot" parent="Enemy Finite State Machine" instance=ExtResource("7_r4yuh")]
+[node name="Reload" parent="Enemy Finite State Machine" instance=ExtResource("5_5vebs")]
 
 [node name="Melee" parent="Enemy Finite State Machine" instance=ExtResource("6_fgwho")]
 
-[node name="Reload" parent="Enemy Finite State Machine" instance=ExtResource("5_5vebs")]
+[node name="Shoot" parent="Enemy Finite State Machine" instance=ExtResource("7_r4yuh")]
 
 [node name="Search Player" parent="Enemy Finite State Machine" instance=ExtResource("8_tnvut")]
 
