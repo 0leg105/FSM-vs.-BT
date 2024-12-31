@@ -1,0 +1,119 @@
+[gd_scene load_steps=2 format=3 uid="uid://7eram73v153w"]
+
+[ext_resource type="PackedScene" uid="uid://dqmg34dkset6j" path="res://tree.tscn" id="1_u64wy"]
+
+[node name="Game" type="Node2D"]
+
+[node name="ColorRect" type="ColorRect" parent="."]
+custom_minimum_size = Vector2(1152, 648)
+
+[node name="StaticBody2D" parent="." instance=ExtResource("1_u64wy")]
+position = Vector2(57, 136)
+
+[node name="StaticBody2D2" parent="." instance=ExtResource("1_u64wy")]
+position = Vector2(56, 230)
+
+[node name="StaticBody2D3" parent="." instance=ExtResource("1_u64wy")]
+position = Vector2(56, 326)
+
+[node name="StaticBody2D4" parent="." instance=ExtResource("1_u64wy")]
+position = Vector2(148, 90)
+
+[node name="StaticBody2D5" parent="." instance=ExtResource("1_u64wy")]
+position = Vector2(238, 90)
+
+[node name="StaticBody2D6" parent="." instance=ExtResource("1_u64wy")]
+position = Vector2(56, 422)
+
+[node name="StaticBody2D7" parent="." instance=ExtResource("1_u64wy")]
+position = Vector2(56, 518)
+
+[node name="StaticBody2D8" parent="." instance=ExtResource("1_u64wy")]
+position = Vector2(56, 611)
+
+[node name="StaticBody2D9" parent="." instance=ExtResource("1_u64wy")]
+position = Vector2(147, 639)
+
+[node name="StaticBody2D10" parent="." instance=ExtResource("1_u64wy")]
+position = Vector2(238, 639)
+
+[node name="StaticBody2D11" parent="." instance=ExtResource("1_u64wy")]
+position = Vector2(327, 639)
+
+[node name="StaticBody2D12" parent="." instance=ExtResource("1_u64wy")]
+position = Vector2(417, 639)
+
+[node name="StaticBody2D13" parent="." instance=ExtResource("1_u64wy")]
+position = Vector2(506, 639)
+
+[node name="StaticBody2D14" parent="." instance=ExtResource("1_u64wy")]
+position = Vector2(596, 639)
+
+[node name="StaticBody2D15" parent="." instance=ExtResource("1_u64wy")]
+position = Vector2(686, 639)
+
+[node name="StaticBody2D16" parent="." instance=ExtResource("1_u64wy")]
+position = Vector2(775, 639)
+
+[node name="StaticBody2D17" parent="." instance=ExtResource("1_u64wy")]
+position = Vector2(865, 639)
+
+[node name="StaticBody2D18" parent="." instance=ExtResource("1_u64wy")]
+position = Vector2(953, 639)
+
+[node name="StaticBody2D19" parent="." instance=ExtResource("1_u64wy")]
+position = Vector2(1043, 639)
+
+[node name="StaticBody2D20" parent="." instance=ExtResource("1_u64wy")]
+position = Vector2(1096, 138)
+
+[node name="StaticBody2D21" parent="." instance=ExtResource("1_u64wy")]
+position = Vector2(1096, 235)
+
+[node name="StaticBody2D22" parent="." instance=ExtResource("1_u64wy")]
+position = Vector2(1097, 330)
+
+[node name="StaticBody2D23" parent="." instance=ExtResource("1_u64wy")]
+position = Vector2(1096, 426)
+
+[node name="StaticBody2D24" parent="." instance=ExtResource("1_u64wy")]
+position = Vector2(1097, 522)
+
+[node name="StaticBody2D25" parent="." instance=ExtResource("1_u64wy")]
+position = Vector2(1096, 617)
+
+[node name="StaticBody2D26" parent="." instance=ExtResource("1_u64wy")]
+position = Vector2(327, 91)
+
+[node name="StaticBody2D27" parent="." instance=ExtResource("1_u64wy")]
+position = Vector2(417, 91)
+
+[node name="StaticBody2D28" parent="." instance=ExtResource("1_u64wy")]
+position = Vector2(506, 91)
+
+[node name="StaticBody2D29" parent="." instance=ExtResource("1_u64wy")]
+position = Vector2(596, 91)
+
+[node name="StaticBody2D30" parent="." instance=ExtResource("1_u64wy")]
+position = Vector2(686, 90)
+
+[node name="StaticBody2D31" parent="." instance=ExtResource("1_u64wy")]
+position = Vector2(776, 91)
+
+[node name="StaticBody2D32" parent="." instance=ExtResource("1_u64wy")]
+position = Vector2(866, 90)
+
+[node name="StaticBody2D33" parent="." instance=ExtResource("1_u64wy")]
+position = Vector2(956, 91)
+
+[node name="StaticBody2D34" parent="." instance=ExtResource("1_u64wy")]
+position = Vector2(1045, 92)
+
+[node name="StaticBody2D35" parent="." instance=ExtResource("1_u64wy")]
+position = Vector2(328, 286)
+
+[node name="StaticBody2D36" parent="." instance=ExtResource("1_u64wy")]
+position = Vector2(820, 272)
+
+[node name="StaticBody2D37" parent="." instance=ExtResource("1_u64wy")]
+position = Vector2(484, 458)
