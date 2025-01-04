@@ -1,8 +1,9 @@
-[gd_scene load_steps=5 format=3 uid="uid://cwytvvy1k0tp0"]
+[gd_scene load_steps=6 format=3 uid="uid://cwytvvy1k0tp0"]
 
 [ext_resource type="PackedScene" uid="uid://bac7pqs8qpv04" path="res://Scenes/Map/Level/level.tscn" id="1_244f5"]
-[ext_resource type="PackedScene" uid="uid://dxucewrvqfsi8" path="res://Scenes/Components/test_player.tscn" id="2_dmcys"]
 [ext_resource type="PackedScene" uid="uid://cqsj5b8qblspt" path="res://Scenes/Map/npc_spawner.tscn" id="3_1bivi"]
+[ext_resource type="PackedScene" path="res://Scenes/Map/debug_box.tscn" id="4_ut0ys"]
+[ext_resource type="PackedScene" uid="uid://dtxs2a0p0stwh" path="res://Scenes/Player/player.tscn" id="4_yn1id"]
 
 [sub_resource type="NavigationPolygon" id="NavigationPolygon_mv8sq"]
 vertices = PackedVector2Array(906, 566, 822, 566, 394, 554, 438, 554, 330, 970, 1078, 1014, 10, 1014, 118, 970, 1910, 458, 1910, 1013.98, 1866, 906, 1866, 822, 1909.97, 11.9766, 1909.03, 374, 1846, 374, 1802, 330, 1802, 54, 1738, 714, 1590, 822, 1654, 714, 1802, 554, 1846, 458, 1738, 630, 1802, 470, 1290, 394, 1526, 470, 1098, 458, 1206, 394, 1290, 714, 1290, 630, 1366, 630, 1366, 906, 1718, 330, 1546, 330, 1462, 330, 1526, 554, 1654, 630, 330, 202, 330, 54, 470, 118, 470, 394, 394, 310, 1610, 714, 906, 842, 1078, 758, 1590, 970, 1450, 906, 1450, 630, 1526, 714, 842.031, 10.0078, 1590, 54, 118, 694, 10, 650, 74, 650, 1290, 118, 1462, 182, 1014, 182, 1014, 458, 842, 394, 842, 310, 630, 630, 630, 906, 458, 842, 458, 694, 1098, 138, 1098, 54, 1206, 118, 1526, 630, 1482, 554, 714, 906, 714, 630, 822, 886, 822, 970, 1098, 182, 1590, 138, 1718, 138, 1546, 182, 1014, 138, 246, 54, 246, 118, 54, 118, 10, 11, 1482, 470, 1206, 470, 1610, 630, 1206, 554, 1206, 630, 1674, 970, 1674, 906, 330, 886, 202, 886, 202, 694, 374, 842, 118, 554, 74, 566, 10, 566, 54, 202, 714, 554, 714, 470, 1162, 1013.01, 1162, 758, 1162, 714, 1206, 714, 1078, 714, 1078, 630, 1162, 630, 906, 970, 906, 886, 822, 842, 374, 694, 266, 394, 310, 394, 438, 470, 1014, 54, 843.039, 267, 554, 118, 758, 11, 182, 394, 394, 470, 758, 394, 714, 394, 758, 310, 714, 310, 758, 267, 630, 310, 630, 394, 554, 394, 118, 470, 394, 394, 310, 310, 266, 310, 182, 310)
@@ -16,8 +17,11 @@ navigation_polygon = SubResource("NavigationPolygon_mv8sq")
 
 [node name="Level" parent="NavigationRegion2D" instance=ExtResource("1_244f5")]
 
-[node name="Player" parent="." instance=ExtResource("2_dmcys")]
-position = Vector2(987, 523)
+[node name="DebugBox" parent="." instance=ExtResource("4_ut0ys")]
+position = Vector2(1369, 208)
 
 [node name="NPC_Spawner" parent="." instance=ExtResource("3_1bivi")]
 position = Vector2(1278, 859)
+
+[node name="Player" parent="." instance=ExtResource("4_yn1id")]
+position = Vector2(833, 508)
