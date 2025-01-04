@@ -1,0 +1,4 @@
+[gd_scene format=3 uid="uid://ck8bmislhupdm"]
+
+[node name="DebugBox" type="Node2D" groups=["DebugBox"]]
+position = Vector2(917, 432)
