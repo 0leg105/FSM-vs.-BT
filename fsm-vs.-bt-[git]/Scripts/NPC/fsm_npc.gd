@@ -1,13 +1,14 @@
 extends EnemyNpc
 class_name FsmNpc
 
+@export var debug_box: Node2D
 var rand_vec2: Vector2
 
 func _enter_tree() -> void:
 	super._enter_tree()
-	##move_component test
-	rand_vec2 = Vector2(randf_range(100, 500), randf_range(100, 500))
-	print("rand_vec2: ", rand_vec2)
 
-func _process(_delta: float) -> void:
-	move_component.go_to_position(rand_vec2)
+func _ready() -> void:
+	pass
+
+func _process(delta: float) -> void:
+	move_component.go_to_position(debug_box.global_position)

@@ -1,6 +1,6 @@
 [gd_scene load_steps=14 format=3 uid="uid://drypu37fxyp3f"]
 
-[ext_resource type="Texture2D" uid="uid://3srsto0k3gej" path="res://textures/icon.svg" id="1_4q2jo"]
+[ext_resource type="Texture2D" uid="uid://3srsto0k3gej" path="res://images/icon.svg" id="1_4q2jo"]
 [ext_resource type="Script" path="res://Scripts/NPC/fsm_npc.gd" id="1_c8psb"]
 [ext_resource type="PackedScene" uid="uid://dioqirosh06ud" path="res://Scenes/Decisionsystems/Finite State Machine/Enemy/enemy_finite_state_machine.tscn" id="2_fx4d1"]
 [ext_resource type="Script" path="res://Scripts/Manager/state_manager.gd" id="2_iywdf"]
@@ -46,7 +46,6 @@ script = ExtResource("2_iywdf")
 
 [node name="Move To Cover" parent="Enemy Finite State Machine" instance=ExtResource("9_3a5ir")]
 
-[node name="Components" type="Node" parent="."]
+[node name="Components" type="Node2D" parent="."]
 
 [node name="MoveComponent" parent="Components" instance=ExtResource("11_hja14")]
-scale = Vector2(0.25, 0.25)

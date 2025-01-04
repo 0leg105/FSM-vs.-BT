@@ -3,15 +3,32 @@ class_name MoveComponent
 
 @onready var nav_agent_2d: NavigationAgent2D = $NavigationAgent2D
 const SPEED: float = 100
-var next_pos: Vector2 = Vector2.ZERO
+
+
+func go_to_position(pos: Vector2) -> void:
+	# Zielposition setzen
+	nav_agent_2d.target_position = pos
+	print("Gehe zu Position:", pos)
 	
-func go_to_position(pos: Vector2 = next_pos) -> void:
-	print(pos)
-	var current_location = character_body.global_transform.origin
-	nav_agent_2d.set_target_position(pos)
+	# Prüfen, ob das Ziel erreichbar ist
+	if !nav_agent_2d.is_target_reachable():
+		print("Zielposition ist nicht erreichbar:", pos)
+		return
+
+	# Prüfen, ob die Navigation abgeschlossen ist
+	if nav_agent_2d.is_navigation_finished():
+		print("Navigation abgeschlossen.")
+		character_body.velocity = Vector2.ZERO  # Bewegung stoppen
+		return
+
+	# Nächste Position im Pfad abrufen
 	var next_position = nav_agent_2d.get_next_path_position()
-	var new_velocity = (next_position - current_location).normalized() * SPEED
-	character_body.velocity = new_velocity
+	print("Nächste Position im Pfad:", next_position)
+
+	# Bewegung berechnen
+	character_body.velocity = (next_position - character_body.global_position).normalized() * SPEED
+
+	# Bewegung ausführen
 	character_body.move_and_slide()
 
 # Derzeitig nicht benötigt

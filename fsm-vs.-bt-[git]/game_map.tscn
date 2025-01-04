@@ -1,8 +1,18 @@
-[gd_scene load_steps=2 format=3 uid="uid://7eram73v153w"]
+[gd_scene load_steps=3 format=3 uid="uid://7eram73v153w"]
 
-[ext_resource type="PackedScene" uid="uid://dqmg34dkset6j" path="res://tree.tscn" id="1_u64wy"]
+[ext_resource type="PackedScene" uid="uid://dqmg34dkset6j" path="res://Scenes/Map/tree.tscn" id="1_u64wy"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_k1k4q"]
+size = Vector2(229, 87)
 
 [node name="Game" type="Node2D"]
+
+[node name="Node2D" type="Node2D" parent="."]
+position = Vector2(813, 398)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Node2D"]
+position = Vector2(-104.5, -33.5)
+shape = SubResource("RectangleShape2D_k1k4q")
 
 [node name="ColorRect" type="ColorRect" parent="."]
 custom_minimum_size = Vector2(1152, 648)

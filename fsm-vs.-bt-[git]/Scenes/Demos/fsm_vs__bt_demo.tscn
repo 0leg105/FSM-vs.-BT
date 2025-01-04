@@ -1,12 +1,24 @@
-[gd_scene load_steps=3 format=3 uid="uid://cmkl0oi88a0ax"]
+[gd_scene load_steps=4 format=3 uid="uid://cmkl0oi88a0ax"]
 
 [ext_resource type="PackedScene" uid="uid://drypu37fxyp3f" path="res://Scenes/NPC/fsm_npc.tscn" id="1_fakan"]
 [ext_resource type="PackedScene" uid="uid://7eram73v153w" path="res://game_map.tscn" id="1_w3vr5"]
 
+[sub_resource type="NavigationPolygon" id="NavigationPolygon_vbtsb"]
+vertices = PackedVector2Array(383, 304, 765, 290, 875, 290, 539, 361, 429, 361, 539, 476, 1027.02, 533.938, 120.039, 529.047, 429, 476, 1027.97, 114.117, 875, 175, 121.953, 124.883, 765, 175, 383, 189, 273, 189, 273, 304)
+polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3, 4), PackedInt32Array(5, 6, 7, 8), PackedInt32Array(9, 6, 2, 10), PackedInt32Array(11, 9, 10, 12), PackedInt32Array(2, 6, 5, 3), PackedInt32Array(1, 0, 13, 12), PackedInt32Array(11, 12, 13, 14), PackedInt32Array(7, 11, 14, 15), PackedInt32Array(4, 8, 7, 15, 0)])
+outlines = Array[PackedVector2Array]([PackedVector2Array(112, 115, 110, 539, 1037, 544, 1038, 104)])
+
 [node name="FSM vs_ BT DEMO" type="Node2D"]
 
-[node name="Game" parent="." instance=ExtResource("1_w3vr5")]
+[node name="NavigationRegion2D" type="NavigationRegion2D" parent="."]
+navigation_polygon = SubResource("NavigationPolygon_vbtsb")
+
+[node name="Game" parent="NavigationRegion2D" instance=ExtResource("1_w3vr5")]
 position = Vector2(0, -1)
 
-[node name="FSM NPC" parent="." instance=ExtResource("1_fakan")]
-position = Vector2(462, 257)
+[node name="FSM NPC" parent="." node_paths=PackedStringArray("debug_box") instance=ExtResource("1_fakan")]
+position = Vector2(463, 259)
+debug_box = NodePath("../Node2D")
+
+[node name="Node2D" type="Node2D" parent="."]
+position = Vector2(226, 246)

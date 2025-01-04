@@ -6,3 +6,6 @@
 script = ExtResource("1_l87rp")
 
 [node name="NavigationAgent2D" type="NavigationAgent2D" parent="."]
+avoidance_enabled = true
+debug_enabled = true
+debug_path_custom_color = Color(0.992157, 0, 0.254902, 1)
