@@ -1,11 +1,11 @@
 extends EnemyNpc
 class_name FsmNpc
 
-@export var debug_box: Node2D
-var rand_vec2: Vector2
+var debug_box: Node2D
 
 func _enter_tree() -> void:
 	super._enter_tree()
+	debug_box = get_tree().get_first_node_in_group("DebugBox")
 
 func _ready() -> void:
 	pass
