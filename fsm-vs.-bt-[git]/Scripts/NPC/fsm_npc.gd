@@ -12,4 +12,5 @@ func _ready() -> void:
 
 func _process(delta: float) -> void:
 	move_component.go_to_position(debug_box.global_position)
+	look_at_component.look_at_pos(debug_box.global_position)
 	vision_component.update()

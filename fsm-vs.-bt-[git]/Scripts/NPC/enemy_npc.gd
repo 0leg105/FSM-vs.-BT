@@ -7,6 +7,7 @@ var state_manager: StateManager
 var move_component: MoveComponent
 var vision_component: VisionComponent
 var player_block_component: PlayerBlockComponent
+var look_at_component: LookAtComponent
 
 func _enter_tree() -> void:
 	global_coordinator = get_tree().get_first_node_in_group("global_coordinator")
@@ -15,6 +16,7 @@ func _enter_tree() -> void:
 	move_component = $Components/MoveComponent
 	vision_component = $Components/VisionComponent
 	player_block_component = $Components/PlayerBlockComponent
+	look_at_component = $Components/LookAtComponent
 
 func get_state_manager() -> StateManager:
 	return state_manager
@@ -30,3 +32,6 @@ func get_player_block() -> PlayerBlock:
 
 func get_player_block_component() -> PlayerBlockComponent:
 	return player_block_component
+
+func get_look_at_component() -> LookAtComponent:
+	return look_at_component

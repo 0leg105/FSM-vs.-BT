@@ -1,0 +1,8 @@
+[gd_scene load_steps=2 format=3 uid="uid://q274n447urai"]
+
+[ext_resource type="Script" path="res://Scripts/Components/look_at_component.gd" id="1_wmcoh"]
+
+[node name="LookAtComponent" type="Node2D" groups=["Component"]]
+script = ExtResource("1_wmcoh")
+
+[node name="Timer" type="Timer" parent="."]

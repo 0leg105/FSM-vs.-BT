@@ -10,7 +10,7 @@ func _ready() -> void:
 	#self.set_state("at_target", false)
 	#self.set_state("at_cover_node", false)
 	self.set_state("player_block_visited", false)
-	self.set_state("last_seen_player_pos", Vector3.ZERO)
+	self.set_state("last_seen_player_pos", Vector2(100,100))
 
 func get_current_state() -> Dictionary:
 	return self.current_state

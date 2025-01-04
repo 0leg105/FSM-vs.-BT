@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=3 uid="uid://drypu37fxyp3f"]
+[gd_scene load_steps=18 format=3 uid="uid://drypu37fxyp3f"]
 
 [ext_resource type="Texture2D" uid="uid://3srsto0k3gej" path="res://images/icon.svg" id="1_4q2jo"]
 [ext_resource type="Script" path="res://Scripts/NPC/fsm_npc.gd" id="1_c8psb"]
@@ -15,6 +15,7 @@
 [ext_resource type="PackedScene" uid="uid://b3fhiewtn54gx" path="res://Scenes/Components/NPC/move_component.tscn" id="11_hja14"]
 [ext_resource type="PackedScene" uid="uid://b35x0alftv7nc" path="res://Scenes/Components/NPC/vision_component.tscn" id="12_t71np"]
 [ext_resource type="PackedScene" uid="uid://2qlx2g8rkbf1" path="res://Scenes/Components/NPC/player_block_component.tscn" id="15_njj5b"]
+[ext_resource type="PackedScene" uid="uid://q274n447urai" path="res://Scenes/Components/NPC/look_at_component.tscn" id="16_hk0ma"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_bu6c3"]
 size = Vector2(129, 128)
@@ -59,3 +60,5 @@ script = ExtResource("2_iywdf")
 scale = Vector2(12.0547, 11.3667)
 
 [node name="PlayerBlockComponent" parent="Components" instance=ExtResource("15_njj5b")]
+
+[node name="LookAtComponent" parent="Components" instance=ExtResource("16_hk0ma")]

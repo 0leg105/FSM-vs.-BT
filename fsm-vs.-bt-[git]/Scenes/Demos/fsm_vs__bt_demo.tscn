@@ -5,7 +5,7 @@
 [ext_resource type="PackedScene" uid="uid://ck8bmislhupdm" path="res://Scenes/Map/debug_box.tscn" id="2_0vidy"]
 [ext_resource type="PackedScene" uid="uid://8h1a3ta0q3gh" path="res://Scenes/Map/player_block.tscn" id="2_6kotc"]
 [ext_resource type="PackedScene" uid="uid://cqsj5b8qblspt" path="res://Scenes/Map/npc_spawner.tscn" id="2_ib4qg"]
-[ext_resource type="PackedScene" uid="uid://dxucewrvqfsi8" path="res://Scenes/Components/test_player.tscn" id="3_14j4h"]
+[ext_resource type="PackedScene" uid="uid://dtxs2a0p0stwh" path="res://Scenes/Player/player.tscn" id="6_qvy4h"]
 
 [sub_resource type="NavigationPolygon" id="NavigationPolygon_vbtsb"]
 vertices = PackedVector2Array(383, 304, 765, 290, 875, 290, 539, 361, 429, 361, 539, 476, 1027.02, 533.938, 120.039, 529.047, 429, 476, 1027.97, 114.117, 875, 175, 121.953, 124.883, 765, 175, 383, 189, 273, 189, 273, 304)
@@ -14,8 +14,7 @@ outlines = Array[PackedVector2Array]([PackedVector2Array(112, 115, 110, 539, 103
 
 [node name="FSM vs_ BT DEMO" type="Node2D"]
 
-[node name="GlobalCoordinator" parent="." node_paths=PackedStringArray("player", "player_block") instance=ExtResource("1_e6t2j")]
-player = NodePath("../Player")
+[node name="GlobalCoordinator" parent="." node_paths=PackedStringArray("player_block") instance=ExtResource("1_e6t2j")]
 player_block = NodePath("../PlayerBlock")
 
 [node name="NavigationRegion2D" type="NavigationRegion2D" parent="."]
@@ -35,5 +34,5 @@ position = Vector2(938, 135)
 max_npc_count = 1
 wait_time = 1.0
 
-[node name="Player" parent="." instance=ExtResource("3_14j4h")]
-position = Vector2(179, 423)
+[node name="Player" parent="." instance=ExtResource("6_qvy4h")]
+position = Vector2(280, 364)
