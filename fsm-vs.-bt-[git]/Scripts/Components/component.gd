@@ -1,4 +1,4 @@
-extends Node
+extends Node2D
 class_name Component
 
 var character_body: CharacterBody2D

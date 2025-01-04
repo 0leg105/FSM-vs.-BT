@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=3 uid="uid://drypu37fxyp3f"]
+[gd_scene load_steps=15 format=3 uid="uid://drypu37fxyp3f"]
 
 [ext_resource type="Texture2D" uid="uid://3srsto0k3gej" path="res://images/icon.svg" id="1_4q2jo"]
 [ext_resource type="Script" path="res://Scripts/NPC/fsm_npc.gd" id="1_c8psb"]
@@ -12,6 +12,7 @@
 [ext_resource type="PackedScene" uid="uid://ccjluwdoh5l10" path="res://Scenes/Decisionsystems/Finite State Machine/Enemy/States/search_player.tscn" id="8_tnvut"]
 [ext_resource type="PackedScene" uid="uid://xm1lsgwpyxx6" path="res://Scenes/Decisionsystems/Finite State Machine/Enemy/States/move_to_cover.tscn" id="9_3a5ir"]
 [ext_resource type="PackedScene" uid="uid://b3fhiewtn54gx" path="res://Scenes/Components/NPC/move_component.tscn" id="11_hja14"]
+[ext_resource type="PackedScene" uid="uid://b35x0alftv7nc" path="res://Scenes/Components/NPC/vision_component.tscn" id="12_t71np"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_bu6c3"]
 size = Vector2(129, 128)
@@ -49,3 +50,6 @@ script = ExtResource("2_iywdf")
 [node name="Components" type="Node2D" parent="."]
 
 [node name="MoveComponent" parent="Components" instance=ExtResource("11_hja14")]
+
+[node name="VisionComponent" parent="Components" instance=ExtResource("12_t71np")]
+scale = Vector2(12.0547, 11.3667)

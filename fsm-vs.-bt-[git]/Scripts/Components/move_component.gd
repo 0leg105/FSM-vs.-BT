@@ -8,22 +8,22 @@ const SPEED: float = 100
 func go_to_position(pos: Vector2) -> void:
 	# Zielposition setzen
 	nav_agent_2d.target_position = pos
-	print("Gehe zu Position:", pos)
+	#print("Gehe zu Position:", pos)
 	
 	# Prüfen, ob das Ziel erreichbar ist
 	if !nav_agent_2d.is_target_reachable():
-		print("Zielposition ist nicht erreichbar:", pos)
+		#print("Zielposition ist nicht erreichbar:", pos)
 		return
 
 	# Prüfen, ob die Navigation abgeschlossen ist
 	if nav_agent_2d.is_navigation_finished():
-		print("Navigation abgeschlossen.")
+		#print("Navigation abgeschlossen.")
 		character_body.velocity = Vector2.ZERO  # Bewegung stoppen
 		return
 
 	# Nächste Position im Pfad abrufen
 	var next_position = nav_agent_2d.get_next_path_position()
-	print("Nächste Position im Pfad:", next_position)
+	#print("Nächste Position im Pfad:", next_position)
 
 	# Bewegung berechnen
 	character_body.velocity = (next_position - character_body.global_position).normalized() * SPEED
