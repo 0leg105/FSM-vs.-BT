@@ -17,8 +17,8 @@
 [ext_resource type="PackedScene" uid="uid://2qlx2g8rkbf1" path="res://Scenes/Components/NPC/player_block_component.tscn" id="15_njj5b"]
 [ext_resource type="PackedScene" uid="uid://q274n447urai" path="res://Scenes/Components/NPC/look_at_component.tscn" id="16_hk0ma"]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_bu6c3"]
-size = Vector2(129, 128)
+[sub_resource type="CircleShape2D" id="CircleShape2D_uywa0"]
+radius = 88.45
 
 [node name="FSM NPC" type="CharacterBody2D"]
 scale = Vector2(0.25, 0.25)
@@ -31,7 +31,7 @@ texture = ExtResource("1_4q2jo")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(-0.5, 0)
-shape = SubResource("RectangleShape2D_bu6c3")
+shape = SubResource("CircleShape2D_uywa0")
 
 [node name="StateManager" type="Node" parent="."]
 script = ExtResource("2_iywdf")
