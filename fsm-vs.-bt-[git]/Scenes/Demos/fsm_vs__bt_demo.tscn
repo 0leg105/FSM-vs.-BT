@@ -18,13 +18,14 @@ outlines = Array[PackedVector2Array]([PackedVector2Array(112, 115, 110, 539, 103
 player = NodePath("../Player")
 player_block = NodePath("../PlayerBlock")
 
-[node name="PlayerBlock" parent="." instance=ExtResource("2_6kotc")]
-
 [node name="NavigationRegion2D" type="NavigationRegion2D" parent="."]
 navigation_polygon = SubResource("NavigationPolygon_vbtsb")
 
 [node name="Game" parent="NavigationRegion2D" instance=ExtResource("1_w3vr5")]
 position = Vector2(0, -1)
+
+[node name="PlayerBlock" parent="." instance=ExtResource("2_6kotc")]
+position = Vector2(219, 208)
 
 [node name="DebugBox" parent="." instance=ExtResource("2_0vidy")]
 position = Vector2(169, 310)
