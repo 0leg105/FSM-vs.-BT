@@ -1,11 +1,10 @@
-extends Component
+extends Node2D
 class_name LookAtComponent
 
 const ROTATIONSPEED: float = 2
+@export var body: Node2D
+@export var sprite: Sprite2D
 
 func look_at_pos(pos: Vector2) -> void:
-	self.look_at(pos)
-	var target_angle = pos.angle()
-	# Setze die Rotation des Characters
-	character_body.rotation = target_angle
-	#character_body.rotate_y(deg_to_rad(self.rotation.y * ROTATIONSPEED))
+	body.look_at(pos)
+	sprite.look_at(pos)

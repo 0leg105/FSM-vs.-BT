@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" path="res://Scripts/Components/look_at_component.gd" id="1_wmcoh"]
 
-[node name="LookAtComponent" type="Node2D" groups=["Component"]]
+[node name="LookAtComponent" type="Node2D"]
 script = ExtResource("1_wmcoh")
 
 [node name="Timer" type="Timer" parent="."]

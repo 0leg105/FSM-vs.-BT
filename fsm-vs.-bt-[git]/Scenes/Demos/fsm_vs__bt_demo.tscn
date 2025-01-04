@@ -14,7 +14,8 @@ outlines = Array[PackedVector2Array]([PackedVector2Array(112, 115, 110, 539, 103
 
 [node name="FSM vs_ BT DEMO" type="Node2D"]
 
-[node name="GlobalCoordinator" parent="." node_paths=PackedStringArray("player_block") instance=ExtResource("1_e6t2j")]
+[node name="GlobalCoordinator" parent="." node_paths=PackedStringArray("player", "player_block") instance=ExtResource("1_e6t2j")]
+player = NodePath("../Player")
 player_block = NodePath("../PlayerBlock")
 
 [node name="NavigationRegion2D" type="NavigationRegion2D" parent="."]
@@ -26,13 +27,13 @@ position = Vector2(0, -1)
 [node name="PlayerBlock" parent="." instance=ExtResource("2_6kotc")]
 position = Vector2(219, 208)
 
-[node name="DebugBox" parent="." instance=ExtResource("2_0vidy")]
-position = Vector2(169, 310)
-
 [node name="FsmNpcSpawner" parent="." instance=ExtResource("2_ib4qg")]
 position = Vector2(938, 135)
 max_npc_count = 1
 wait_time = 1.0
 
+[node name="DebugBox" parent="." instance=ExtResource("2_0vidy")]
+position = Vector2(658, 293)
+
 [node name="Player" parent="." groups=["Player"] instance=ExtResource("6_qvy4h")]
-position = Vector2(280, 364)
+position = Vector2(394, 357)

@@ -1,10 +1,10 @@
 [gd_scene load_steps=18 format=3 uid="uid://drypu37fxyp3f"]
 
-[ext_resource type="Texture2D" uid="uid://3srsto0k3gej" path="res://images/icon.svg" id="1_4q2jo"]
 [ext_resource type="Script" path="res://Scripts/NPC/fsm_npc.gd" id="1_c8psb"]
 [ext_resource type="PackedScene" uid="uid://dioqirosh06ud" path="res://Scenes/Decisionsystems/Finite State Machine/Enemy/enemy_finite_state_machine.tscn" id="2_fx4d1"]
 [ext_resource type="Script" path="res://Scripts/Manager/state_manager.gd" id="2_iywdf"]
 [ext_resource type="PackedScene" uid="uid://cv6d8u23jbp7q" path="res://Scenes/Manager/state_manager.tscn" id="2_so42k"]
+[ext_resource type="Texture2D" uid="uid://tigfn7qc531t" path="res://images/icon_red.png" id="3_gbnpq"]
 [ext_resource type="PackedScene" uid="uid://bohilm24n28vt" path="res://Scenes/Decisionsystems/Finite State Machine/Enemy/States/idle.tscn" id="3_ttqmh"]
 [ext_resource type="PackedScene" uid="uid://br485uyskiofn" path="res://Scenes/Decisionsystems/Finite State Machine/Enemy/States/alert.tscn" id="4_eymyp"]
 [ext_resource type="PackedScene" uid="uid://by1jgu4v3xcee" path="res://Scenes/Decisionsystems/Finite State Machine/Enemy/States/reload.tscn" id="5_5vebs"]
@@ -27,7 +27,7 @@ script = ExtResource("1_c8psb")
 [node name="State Manager" parent="." instance=ExtResource("2_so42k")]
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-texture = ExtResource("1_4q2jo")
+texture = ExtResource("3_gbnpq")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(-0.5, 0)
@@ -57,8 +57,13 @@ script = ExtResource("2_iywdf")
 [node name="MoveComponent" parent="Components" instance=ExtResource("11_hja14")]
 
 [node name="VisionComponent" parent="Components" instance=ExtResource("12_t71np")]
+rotation = -1.5708
 scale = Vector2(12.0547, 11.3667)
 
 [node name="PlayerBlockComponent" parent="Components" instance=ExtResource("15_njj5b")]
 
-[node name="LookAtComponent" parent="Components" instance=ExtResource("16_hk0ma")]
+[node name="LookAtComponent" parent="Components" node_paths=PackedStringArray("body", "sprite") instance=ExtResource("16_hk0ma")]
+body = NodePath("..")
+sprite = NodePath("../../Sprite2D")
+
+[node name="RayCast2D" type="RayCast2D" parent="."]

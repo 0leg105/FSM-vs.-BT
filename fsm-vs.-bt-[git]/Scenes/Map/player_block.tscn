@@ -1,11 +1,11 @@
 [gd_scene load_steps=3 format=3 uid="uid://8h1a3ta0q3gh"]
 
 [ext_resource type="Script" path="res://Scripts/Map/player_block.gd" id="1_tcw6d"]
-[ext_resource type="Texture2D" uid="uid://3srsto0k3gej" path="res://images/icon.svg" id="2_h5fpo"]
+[ext_resource type="Texture2D" uid="uid://brmvdqfduf4bp" path="res://images/location_535239.png" id="2_whlnu"]
 
 [node name="PlayerBlock" type="Node2D" groups=["PlayerBlock"]]
 script = ExtResource("1_tcw6d")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-scale = Vector2(0.25, 0.25)
-texture = ExtResource("2_h5fpo")
+scale = Vector2(0.1, 0.1)
+texture = ExtResource("2_whlnu")
