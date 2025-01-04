@@ -13,3 +13,5 @@ func _ready() -> void:
 func _process(delta: float) -> void:
 	move_component.go_to_position(debug_box.global_position)
 	vision_component.update()
+	print(state_manager.get_state("player_visible"))
+	print(state_manager.get_state("last_seen_player_pos"))

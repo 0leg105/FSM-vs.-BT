@@ -27,8 +27,8 @@ func update() -> void:
 					var collider = ray_cast.get_collider()
 					# Spieler kann direkt gesehen werden
 					if collider.is_in_group("Player"):
-						print("player sichtbar")
-						#set_player_visible(body.global_transform.origin)
+						#print("player sichtbar")
+						set_player_visible(body.global_position)
 						return
 	start_player_not_visible_timer()
 
@@ -41,9 +41,9 @@ func _on_timer_timeout() -> void:
 	timer.stop()
 
 # Kein PlayerBlock Vorhanden
-#func set_player_visible(pos: Vector3) -> void:
-	#state_manager.update_state("player_visible", true)
-	#state_manager.update_state("last_seen_player_pos", pos)
+func set_player_visible(pos: Vector2) -> void:
+	state_manager.update_state("player_visible", true)
+	state_manager.update_state("last_seen_player_pos", pos)
 	#if player_block_component:
 		#player_block_component.set_player_block_pos(pos)
 	#else:
