@@ -16,4 +16,6 @@ polygon = PackedVector2Array(-52.1671, 139.814, 56.0313, 139.814, 0, 21)
 wait_time = 2.0
 one_shot = true
 
+[node name="RayCast2D" type="RayCast2D" parent="."]
+
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

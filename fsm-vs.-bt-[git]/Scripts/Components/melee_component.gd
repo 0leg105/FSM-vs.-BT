@@ -1,12 +1,12 @@
 extends Component
 class_name MeleeComponent
 
-@onready var ray_cast: RayCast3D = $RayCast3D
+@onready var ray_cast: RayCast2D = $RayCast3D
 @onready var timer: Timer = $Timer
 const MELEE_RANGE: float = 4
 
-func _ready() -> void:
-	ray_cast.target_position.z = -1 * MELEE_RANGE
+#func _ready() -> void:
+	#ray_cast.target_position.z = -1 * MELEE_RANGE
 
 func melee_player() -> bool:
 	if timer.is_stopped():

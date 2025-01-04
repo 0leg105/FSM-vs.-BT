@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=3 uid="uid://drypu37fxyp3f"]
+[gd_scene load_steps=20 format=3 uid="uid://drypu37fxyp3f"]
 
 [ext_resource type="Script" path="res://Scripts/NPC/fsm_npc.gd" id="1_c8psb"]
 [ext_resource type="PackedScene" uid="uid://dioqirosh06ud" path="res://Scenes/Decisionsystems/Finite State Machine/Enemy/enemy_finite_state_machine.tscn" id="2_fx4d1"]
@@ -16,6 +16,8 @@
 [ext_resource type="PackedScene" uid="uid://b35x0alftv7nc" path="res://Scenes/Components/NPC/vision_component.tscn" id="12_t71np"]
 [ext_resource type="PackedScene" uid="uid://2qlx2g8rkbf1" path="res://Scenes/Components/NPC/player_block_component.tscn" id="15_njj5b"]
 [ext_resource type="PackedScene" uid="uid://q274n447urai" path="res://Scenes/Components/NPC/look_at_component.tscn" id="16_hk0ma"]
+[ext_resource type="PackedScene" uid="uid://bk78pfbavd81i" path="res://Scenes/Components/NPC/melee_component.tscn" id="17_5qoou"]
+[ext_resource type="PackedScene" uid="uid://cctjop4oihtr7" path="res://Scenes/Components/NPC/patrol_component.tscn" id="18_t7tem"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_uywa0"]
 radius = 88.45
@@ -66,4 +68,8 @@ scale = Vector2(12.0547, 11.3667)
 body = NodePath("..")
 sprite = NodePath("../../Sprite2D")
 
-[node name="RayCast2D" type="RayCast2D" parent="."]
+[node name="MeleeComponent" parent="Components" instance=ExtResource("17_5qoou")]
+script = null
+
+[node name="PatrolComponent" parent="Components" instance=ExtResource("18_t7tem")]
+script = null

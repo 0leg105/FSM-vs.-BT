@@ -1,0 +1,12 @@
+[gd_scene load_steps=2 format=3 uid="uid://bk78pfbavd81i"]
+
+[ext_resource type="Script" path="res://Scripts/Components/melee_component.gd" id="1_0hal0"]
+
+[node name="MeleeComponent" type="Node2D" groups=["Component"]]
+script = ExtResource("1_0hal0")
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 2.0
+one_shot = true
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

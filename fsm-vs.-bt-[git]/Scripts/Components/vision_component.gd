@@ -1,6 +1,7 @@
 extends Component
 class_name VisionComponent
 
+@onready var ray_cast: RayCast2D = $RayCast2D
 @onready var area_2d: Area2D = $Area2D
 @onready var timer: Timer = $Timer
 var player_block_component: PlayerBlockComponent
@@ -19,7 +20,11 @@ func update() -> void:
 		for body in bodies:
 			# Spieler ist im Sichtfeld
 			if body.is_in_group("Player"):
-				set_player_visible(body.global_position)
+				ray_cast.target_position = to_local(body.global_position)
+				if ray_cast.is_colliding():
+					var collider = ray_cast.get_collider()
+					if collider.is_in_group("Player"):
+						set_player_visible(body.global_position)
 	start_player_not_visible_timer()
 
 func start_player_not_visible_timer() -> void:
