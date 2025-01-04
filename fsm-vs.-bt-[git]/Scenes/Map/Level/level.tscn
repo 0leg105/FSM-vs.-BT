@@ -1,3 +1,131 @@
-[gd_scene format=3 uid="uid://bac7pqs8qpv04"]
+[gd_scene load_steps=3 format=3 uid="uid://bac7pqs8qpv04"]
+
+[ext_resource type="PackedScene" uid="uid://cmc2nlafdnihk" path="res://Scenes/Map/big_wall.tscn" id="1_jsrlw"]
+[ext_resource type="PackedScene" path="res://Scenes/Map/square.tscn" id="2_iradt"]
 
 [node name="Level" type="Node2D"]
+
+[node name="ColorRect" type="ColorRect" parent="."]
+offset_right = 1920.0
+offset_bottom = 1024.0
+color = Color(0.133333, 0.164706, 0.286275, 1)
+
+[node name="StaticBody2D" parent="." instance=ExtResource("1_jsrlw")]
+position = Vector2(64, 192)
+rotation = -1.5708
+
+[node name="StaticBody2D2" parent="." instance=ExtResource("2_iradt")]
+position = Vector2(256, 64)
+
+[node name="StaticBody2D3" parent="." instance=ExtResource("2_iradt")]
+position = Vector2(192, 320)
+
+[node name="StaticBody2D4" parent="." instance=ExtResource("2_iradt")]
+position = Vector2(320, 320)
+
+[node name="StaticBody2D5" parent="." instance=ExtResource("1_jsrlw")]
+position = Vector2(128, 544)
+rotation = -1.5708
+
+[node name="StaticBody2D6" parent="." instance=ExtResource("1_jsrlw")]
+position = Vector2(480, 128)
+
+[node name="StaticBody2D7" parent="." instance=ExtResource("1_jsrlw")]
+position = Vector2(448, 544)
+rotation = -1.5708
+
+[node name="StaticBody2D8" parent="." instance=ExtResource("1_jsrlw")]
+position = Vector2(768, 0)
+
+[node name="StaticBody2D9" parent="." instance=ExtResource("2_iradt")]
+position = Vector2(640, 320)
+
+[node name="StaticBody2D10" parent="." instance=ExtResource("2_iradt")]
+position = Vector2(768, 320)
+
+[node name="StaticBody2D11" parent="." instance=ExtResource("2_iradt")]
+position = Vector2(1024, 64)
+
+[node name="StaticBody2D12" parent="." instance=ExtResource("1_jsrlw")]
+position = Vector2(1024, 192)
+
+[node name="StaticBody2D13" parent="." instance=ExtResource("1_jsrlw")]
+position = Vector2(1216, 128)
+
+[node name="StaticBody2D14" parent="." instance=ExtResource("1_jsrlw")]
+position = Vector2(1536, 544)
+rotation = -1.5708
+
+[node name="StaticBody2D15" parent="." instance=ExtResource("1_jsrlw")]
+position = Vector2(1216, 544)
+rotation = -1.5708
+
+[node name="StaticBody2D16" parent="." instance=ExtResource("1_jsrlw")]
+position = Vector2(832, 576)
+
+[node name="StaticBody2D17" parent="." instance=ExtResource("2_iradt")]
+position = Vector2(832, 896)
+
+[node name="StaticBody2D18" parent="." instance=ExtResource("2_iradt")]
+position = Vector2(0, 576)
+
+[node name="StaticBody2D19" parent="." instance=ExtResource("2_iradt")]
+position = Vector2(1856, 384)
+
+[node name="StaticBody2D20" parent="." instance=ExtResource("1_jsrlw")]
+position = Vector2(128, 704)
+
+[node name="StaticBody2D21" parent="." instance=ExtResource("2_iradt")]
+position = Vector2(192, 896)
+
+[node name="StaticBody2D22" parent="." instance=ExtResource("2_iradt")]
+position = Vector2(256, 896)
+
+[node name="StaticBody2D23" parent="." instance=ExtResource("1_jsrlw")]
+position = Vector2(1728, 64)
+
+[node name="StaticBody2D24" parent="." instance=ExtResource("1_jsrlw")]
+position = Vector2(1088, 768)
+
+[node name="StaticBody2D25" parent="." instance=ExtResource("2_iradt")]
+position = Vector2(1088, 640)
+
+[node name="StaticBody2D26" parent="." instance=ExtResource("2_iradt")]
+position = Vector2(1216, 640)
+
+[node name="StaticBody2D27" parent="." instance=ExtResource("2_iradt")]
+position = Vector2(1664, 640)
+
+[node name="StaticBody2D28" parent="." instance=ExtResource("1_jsrlw")]
+position = Vector2(1376, 640)
+
+[node name="StaticBody2D29" parent="." instance=ExtResource("2_iradt")]
+position = Vector2(1536, 640)
+
+[node name="StaticBody2D30" parent="." instance=ExtResource("2_iradt")]
+position = Vector2(1664, 64)
+
+[node name="StaticBody2D31" parent="." instance=ExtResource("2_iradt")]
+position = Vector2(1600, 64)
+
+[node name="StaticBody2D32" parent="." instance=ExtResource("2_iradt")]
+position = Vector2(1472, 192)
+
+[node name="StaticBody2D33" parent="." instance=ExtResource("2_iradt")]
+position = Vector2(1472, 256)
+
+[node name="StaticBody2D34" parent="." instance=ExtResource("2_iradt")]
+position = Vector2(384, 768)
+
+[node name="StaticBody2D35" parent="." instance=ExtResource("2_iradt")]
+position = Vector2(384, 704)
+
+[node name="StaticBody2D36" parent="." instance=ExtResource("1_jsrlw")]
+position = Vector2(1600, 896)
+rotation = -1.5708
+
+[node name="StaticBody2D37" parent="." instance=ExtResource("2_iradt")]
+position = Vector2(1600, 896)
+
+[node name="StaticBody2D38" parent="." instance=ExtResource("1_jsrlw")]
+position = Vector2(640, 640)
