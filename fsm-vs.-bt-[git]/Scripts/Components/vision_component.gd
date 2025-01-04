@@ -18,12 +18,14 @@ func update() -> void:
 	var bodies = area_2d.get_overlapping_bodies()
 	if bodies.size() > 0:
 		for body in bodies:
+			# Spieler ist im Sichtfeld
 			if body.is_in_group("Player"):
 				var body_pos = body.global_position
 				ray_cast.target_position = body_pos - ray_cast.global_position
 				ray_cast.force_raycast_update()
 				if ray_cast.is_colliding():
 					var collider = ray_cast.get_collider()
+					# Spieler kann direkt gesehen werden
 					if collider.is_in_group("Player"):
 						print("player sichtbar")
 						#set_player_visible(body.global_transform.origin)

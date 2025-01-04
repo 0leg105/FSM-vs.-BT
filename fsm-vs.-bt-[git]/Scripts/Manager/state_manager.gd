@@ -4,12 +4,11 @@ class_name StateManager
 var current_state: Dictionary = {}
 
 func _ready() -> void:
-	self.set_state("healthpoints", 100)
 	self.set_state("bullets", true)
 	self.set_state("player_visible", false)
 	self.set_state("player_eliminated", false)
-	self.set_state("at_target", false)
-	self.set_state("at_cover_node", false)
+	#self.set_state("at_target", false)
+	#self.set_state("at_cover_node", false)
 	self.set_state("player_block_visited", false)
 	self.set_state("last_seen_player_pos", Vector3.ZERO)
 
