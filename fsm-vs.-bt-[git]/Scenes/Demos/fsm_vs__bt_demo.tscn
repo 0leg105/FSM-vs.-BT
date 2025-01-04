@@ -1,6 +1,6 @@
 [gd_scene load_steps=5 format=3 uid="uid://cmkl0oi88a0ax"]
 
-[ext_resource type="PackedScene" uid="uid://7eram73v153w" path="res://Scenes/Demos/Level/game_map.tscn" id="1_w3vr5"]
+[ext_resource type="PackedScene" uid="uid://7eram73v153w" path="res://Scenes/Map/Level/old_map.tscn" id="1_w3vr5"]
 [ext_resource type="PackedScene" uid="uid://cqsj5b8qblspt" path="res://Scenes/Map/npc_spawner.tscn" id="2_ib4qg"]
 [ext_resource type="PackedScene" uid="uid://dxucewrvqfsi8" path="res://Scenes/Components/test_player.tscn" id="3_14j4h"]
 
