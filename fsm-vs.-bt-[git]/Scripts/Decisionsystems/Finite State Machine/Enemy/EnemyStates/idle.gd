@@ -7,7 +7,6 @@ func enter():
 func exit():
 	pass
 
-func update(_delta:float):
+func update(_delta: float):
 	if state_manager.get_state("player_visible"):
-		pass
-		#fsm.change_state(self,"Alert")
+		fsm.change_state(self,"Patrol")

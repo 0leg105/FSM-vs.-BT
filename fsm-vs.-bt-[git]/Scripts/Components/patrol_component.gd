@@ -12,25 +12,25 @@ func _enter_tree() -> void:
 	move_component = character_body.get_move_component()
 	patrol_nodes = character_body.get_patrol_nodes()
 
-func get_patrol_node_pos() -> Vector3:
+func get_patrol_node_pos() -> Vector2:
 	if not initialized:
 		current_node_index = get_shortest_node()
 		initialized = true
-		return patrol_nodes[current_node_index].global_transform.origin
+		return patrol_nodes[current_node_index].global_position
 	elif patrol_node_eneterd:
 		current_node_index = (current_node_index + 1) % patrol_nodes.size()
 		set_patrol_node_entered(false)
-		return patrol_nodes[current_node_index].global_transform.origin
-	return patrol_nodes[current_node_index].global_transform.origin
+		return patrol_nodes[current_node_index].global_position
+	return patrol_nodes[current_node_index].global_position
 
 func get_patrol_nodes_size() -> int:
 	return patrol_nodes.size()
 
 func get_shortest_node() -> int:
 	var shorted_patrol_node_index: int = 0
-	var shortest_length: float = move_component.get_path_length(patrol_nodes[0].global_transform.origin)
+	var shortest_length: float = move_component.get_path_length(patrol_nodes[0].global_position)
 	for i in range(1, patrol_nodes.size()-1):
-		var length: float = move_component.get_path_length(patrol_nodes[i].global_transform.origin)
+		var length: float = move_component.get_path_length(patrol_nodes[i].global_position)
 		if length <= shortest_length:
 			shortest_length = length
 			shorted_patrol_node_index = i

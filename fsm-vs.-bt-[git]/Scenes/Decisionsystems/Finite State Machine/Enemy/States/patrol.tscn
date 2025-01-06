@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://clhmf2maysf4d"]
+
+[ext_resource type="Script" path="res://Scripts/Decisionsystems/Finite State Machine/Enemy/EnemyStates/patrol.gd" id="1_kl3ya"]
+
+[node name="Patrol" type="Node"]
+script = ExtResource("1_kl3ya")

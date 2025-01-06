@@ -1,9 +1,9 @@
 [gd_scene load_steps=2 format=3 uid="uid://cwts430jak01v"]
 
-[ext_resource type="Script" path="res://Script/Components/Enemy/shoot_component.gd" id="1_fns7n"]
+[ext_resource type="Script" path="res://Scripts/Components/shoot_component.gd" id="1_yl0pj"]
 
-[node name="ShootComponent" type="Node3D" groups=["Component"]]
-script = ExtResource("1_fns7n")
+[node name="ShootComponent" type="Node2D" groups=["Component"]]
+script = ExtResource("1_yl0pj")
 
 [node name="ShootTimer" type="Timer" parent="."]
 one_shot = true
@@ -12,7 +12,8 @@ one_shot = true
 wait_time = 2.0
 one_shot = true
 
-[node name="RayCast3D" type="RayCast3D" parent="."]
+[node name="RayCast2D" type="RayCast2D" parent="."]
+modulate = Color(1, 0, 1, 1)
 
 [connection signal="timeout" from="ShootTimer" to="." method="_on_shoot_timer_timeout"]
 [connection signal="timeout" from="ReloadTimer" to="." method="_on_reload_timer_timeout"]

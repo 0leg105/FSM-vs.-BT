@@ -3,6 +3,7 @@
 [ext_resource type="Texture2D" uid="uid://vqagxe2ltve6" path="res://images/1051273.png" id="1_m4fcl"]
 
 [node name="DebugBox" type="Node2D" groups=["DebugBox"]]
+scale = Vector2(0.25, 0.25)
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 scale = Vector2(0.3, 0.3)

@@ -3,13 +3,12 @@ class_name ShootComponent
 
 @onready var timer: Timer = $ShootTimer
 @onready var reload_timer: Timer = $ReloadTimer
-@onready var ray_cast: RayCast3D = $RayCast3D
+@onready var ray_cast: RayCast2D = $RayCast2D
 const MAX_BULLETS: int = 3
-const SHOOT_RANGE: float = 20
 var bullets: int = 0
 
-func _ready() -> void:
-	ray_cast.target_position.z = -1 * SHOOT_RANGE
+func _enter_tree() -> void:
+	super._enter_tree()
 	state_manager.update_state("bullets", bullets > 0)
 
 func shoot_player() -> bool:
@@ -32,4 +31,4 @@ func reload_gun() -> void:
 
 func _on_reload_timer_timeout() -> void:
 	bullets = MAX_BULLETS
-	state_manager.update_state("bullets", true)
+	state_manager.update_state("bullets", bullets > 0)

@@ -3,7 +3,6 @@ class_name VisionComponent
 
 @onready var ray_cast: RayCast2D = $RayCast2D
 @onready var area_2d: Area2D = $Area2D
-@onready var timer: Timer = $Timer
 var player_block_component: PlayerBlockComponent
 
 func _enter_tree() -> void:
@@ -12,7 +11,7 @@ func _enter_tree() -> void:
 
 func _on_area_3d_body_exited(body: Node3D) -> void:
 	if body.is_in_group("Player"):
-		start_player_not_visible_timer()
+		set_player_not_visible()
 
 func update() -> void:
 	var bodies = area_2d.get_overlapping_bodies()
@@ -25,15 +24,12 @@ func update() -> void:
 					var collider = ray_cast.get_collider()
 					if collider.is_in_group("Player"):
 						set_player_visible(body.global_position)
-	start_player_not_visible_timer()
+						return
+	set_player_not_visible()
+	return
 
-func start_player_not_visible_timer() -> void:
-	if timer.is_stopped() == true:
-		timer.start()
-
-func _on_timer_timeout() -> void:
+func set_player_not_visible() -> void:
 	state_manager.update_state("player_visible", false)
-	timer.stop()
 
 # Kein PlayerBlock Vorhanden
 func set_player_visible(pos: Vector2) -> void:

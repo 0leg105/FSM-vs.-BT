@@ -1,10 +1,11 @@
-[gd_scene load_steps=8 format=3 uid="uid://cmkl0oi88a0ax"]
+[gd_scene load_steps=9 format=3 uid="uid://cmkl0oi88a0ax"]
 
 [ext_resource type="PackedScene" uid="uid://xwifhd41ifg0" path="res://Scenes/Manager/global_coordinator.tscn" id="1_e6t2j"]
 [ext_resource type="PackedScene" uid="uid://7eram73v153w" path="res://Scenes/Map/Level/old_map.tscn" id="1_w3vr5"]
 [ext_resource type="PackedScene" uid="uid://ck8bmislhupdm" path="res://Scenes/Map/debug_box.tscn" id="2_0vidy"]
 [ext_resource type="PackedScene" uid="uid://8h1a3ta0q3gh" path="res://Scenes/Map/player_block.tscn" id="2_6kotc"]
 [ext_resource type="PackedScene" uid="uid://cqsj5b8qblspt" path="res://Scenes/Map/npc_spawner.tscn" id="2_ib4qg"]
+[ext_resource type="PackedScene" uid="uid://dduh8kcvnesk7" path="res://Scenes/Map/patrol_node.tscn" id="5_7ixm2"]
 [ext_resource type="PackedScene" uid="uid://dtxs2a0p0stwh" path="res://Scenes/Player/player.tscn" id="6_qvy4h"]
 
 [sub_resource type="NavigationPolygon" id="NavigationPolygon_vbtsb"]
@@ -14,9 +15,10 @@ outlines = Array[PackedVector2Array]([PackedVector2Array(112, 115, 110, 539, 103
 
 [node name="FSM vs_ BT DEMO" type="Node2D"]
 
-[node name="GlobalCoordinator" parent="." node_paths=PackedStringArray("player", "player_block") instance=ExtResource("1_e6t2j")]
+[node name="GlobalCoordinator" parent="." node_paths=PackedStringArray("player", "player_block", "patrol_nodes") instance=ExtResource("1_e6t2j")]
 player = NodePath("../Player")
 player_block = NodePath("../PlayerBlock")
+patrol_nodes = [NodePath("../PatrolNodes/PatrolNode"), NodePath("../PatrolNodes/PatrolNode2"), NodePath("../PatrolNodes/PatrolNode3"), NodePath("../PatrolNodes/PatrolNode4"), NodePath("../PatrolNodes/PatrolNode5"), NodePath("../PatrolNodes/PatrolNode6")]
 
 [node name="NavigationRegion2D" type="NavigationRegion2D" parent="."]
 navigation_polygon = SubResource("NavigationPolygon_vbtsb")
@@ -32,7 +34,30 @@ position = Vector2(938, 135)
 max_npc_count = 1
 wait_time = 1.0
 
+[node name="PatrolNodes" type="Node2D" parent="."]
+position = Vector2(409, 434)
+scale = Vector2(0.25, 0.25)
+
+[node name="PatrolNode" parent="PatrolNodes" instance=ExtResource("5_7ixm2")]
+position = Vector2(-884, 12)
+
+[node name="PatrolNode2" parent="PatrolNodes" instance=ExtResource("5_7ixm2")]
+position = Vector2(280, 244)
+
+[node name="PatrolNode3" parent="PatrolNodes" instance=ExtResource("5_7ixm2")]
+position = Vector2(1248, 244)
+
+[node name="PatrolNode4" parent="PatrolNodes" instance=ExtResource("5_7ixm2")]
+position = Vector2(2184, -772)
+
+[node name="PatrolNode5" parent="PatrolNodes" instance=ExtResource("5_7ixm2")]
+position = Vector2(816, -772)
+
+[node name="PatrolNode6" parent="PatrolNodes" instance=ExtResource("5_7ixm2")]
+position = Vector2(-760, -1140)
+
 [node name="DebugBox" parent="." instance=ExtResource("2_0vidy")]
+visible = false
 position = Vector2(409, 434)
 
 [node name="Player" parent="." groups=["Player"] instance=ExtResource("6_qvy4h")]
