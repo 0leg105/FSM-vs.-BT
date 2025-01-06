@@ -9,4 +9,9 @@ script = ExtResource("1_0hal0")
 wait_time = 2.0
 one_shot = true
 
+[node name="RayCast2D" type="RayCast2D" parent="."]
+rotation = -1.5708
+target_position = Vector2(0, 200)
+collision_mask = 6
+
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

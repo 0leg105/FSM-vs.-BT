@@ -19,3 +19,8 @@ config/icon="res://images/icon.svg"
 
 window/size/viewport_width=1920
 window/size/viewport_height=1024
+
+[layer_names]
+
+2d_physics/layer_2="Player"
+2d_physics/layer_3="Walls"

@@ -6,6 +6,8 @@
 size = Vector2(90, 95)
 
 [node name="StaticBody2D" type="StaticBody2D"]
+collision_layer = 4
+collision_mask = 0
 
 [node name="PineTree" type="Sprite2D" parent="."]
 position = Vector2(0, -67)

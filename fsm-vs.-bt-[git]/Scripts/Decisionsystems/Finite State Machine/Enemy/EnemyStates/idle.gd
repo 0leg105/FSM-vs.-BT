@@ -9,4 +9,4 @@ func exit():
 
 func update(_delta: float):
 	if state_manager.get_state("player_visible"):
-		fsm.change_state(self,"Patrol")
+		fsm.change_state(self,"Alert")

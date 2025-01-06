@@ -7,11 +7,14 @@
 script = ExtResource("1_vdmnk")
 
 [node name="Area2D" type="Area2D" parent="."]
+position = Vector2(0, -21)
+collision_layer = 0
+collision_mask = 2
 
 [node name="Polygon2D" parent="Area2D" instance=ExtResource("2_8kumo")]
-position = Vector2(0, -21)
 polygon = PackedVector2Array(-52.1671, 139.814, 56.0313, 139.814, 0, 21)
 
 [node name="RayCast2D" type="RayCast2D" parent="."]
-scale = Vector2(1, 1.667)
-target_position = Vector2(0, 80)
+target_position = Vector2(0, 125)
+collision_mask = 6
+collide_with_areas = true

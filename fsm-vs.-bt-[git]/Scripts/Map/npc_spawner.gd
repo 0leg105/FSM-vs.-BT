@@ -21,16 +21,14 @@ func spawn_npc() -> void:
 	var instance = npc.instantiate()
 	add_child(instance)
 
-#func set_max_npc_count(max_npc_count: int) -> void:
-	#self.max_npc_count = max_npc_count
-
-#func decrement(value: int) -> void:
-	#current_npc_count -= value
-
 func _on_timer_timeout() -> void:
 	if current_npc_count < max_npc_count:
 		spawn_npc()
 		current_npc_count += 1
 
-#func get_current_npc_count() -> int:
-	#return current_npc_count
+# Derzeit nicht benutzt
+#func set_max_npc_count(max_npc_count: int) -> void:
+	#self.max_npc_count = max_npc_count
+
+#func set_npc_spawn_time(wait_time: int) -> void:
+	#self.wait_time = wait_time

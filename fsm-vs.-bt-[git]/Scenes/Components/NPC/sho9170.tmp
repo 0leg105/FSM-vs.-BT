@@ -1,9 +1,6 @@
-[gd_scene load_steps=2 format=3 uid="uid://cwts430jak01v"]
-
-[ext_resource type="Script" path="res://Scripts/Components/shoot_component.gd" id="1_mqljy"]
+[gd_scene format=3 uid="uid://cwts430jak01v"]
 
 [node name="ShootComponent" type="Node2D"]
-script = ExtResource("1_mqljy")
 
 [node name="ShootTimer" type="Timer" parent="."]
 one_shot = true
@@ -15,7 +12,6 @@ one_shot = true
 [node name="RayCast2D" type="RayCast2D" parent="."]
 modulate = Color(1, 0, 1, 1)
 target_position = Vector2(0, 360)
-collision_mask = 6
 collide_with_areas = true
 
 [connection signal="timeout" from="ShootTimer" to="." method="_on_shoot_timer_timeout"]

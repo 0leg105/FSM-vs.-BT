@@ -1,0 +1,50 @@
+[gd_scene load_steps=12 format=3 uid="uid://bxt0hiitqfo82"]
+
+[ext_resource type="PackedScene" uid="uid://cv6d8u23jbp7q" path="res://Scenes/Manager/state_manager.tscn" id="1_xsfom"]
+[ext_resource type="PackedScene" uid="uid://b3fhiewtn54gx" path="res://Scenes/Components/NPC/move_component.tscn" id="2_60w8x"]
+[ext_resource type="PackedScene" uid="uid://b35x0alftv7nc" path="res://Scenes/Components/NPC/vision_component.tscn" id="3_wkigv"]
+[ext_resource type="PackedScene" uid="uid://2qlx2g8rkbf1" path="res://Scenes/Components/NPC/player_block_component.tscn" id="4_lm1ms"]
+[ext_resource type="PackedScene" uid="uid://q274n447urai" path="res://Scenes/Components/NPC/look_at_component.tscn" id="5_ivpfp"]
+[ext_resource type="PackedScene" uid="uid://bk78pfbavd81i" path="res://Scenes/Components/NPC/melee_component.tscn" id="6_upolc"]
+[ext_resource type="PackedScene" uid="uid://cwts430jak01v" path="res://Scenes/Components/NPC/shoot_component.tscn" id="7_63ljq"]
+[ext_resource type="PackedScene" uid="uid://cctjop4oihtr7" path="res://Scenes/Components/NPC/patrol_component.tscn" id="8_moobo"]
+[ext_resource type="PackedScene" uid="uid://dh7afqna0d576" path="res://Scenes/Components/NPC/neighbor_component.tscn" id="9_p6ua1"]
+[ext_resource type="Texture2D" uid="uid://cmtrun1dyxr4r" path="res://images/icon_pink.png" id="10_7s150"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_jqilp"]
+radius = 88.45
+
+[node name="BT NPC" type="CharacterBody2D"]
+
+[node name="StateManager" parent="." instance=ExtResource("1_xsfom")]
+
+[node name="Components" type="Node2D" parent="."]
+
+[node name="MoveComponent" parent="Components" instance=ExtResource("2_60w8x")]
+
+[node name="VisionComponent" parent="Components" instance=ExtResource("3_wkigv")]
+rotation = -1.5708
+scale = Vector2(10, 10)
+
+[node name="PlayerBlockComponent" parent="Components" instance=ExtResource("4_lm1ms")]
+
+[node name="LookAtComponent" parent="Components" node_paths=PackedStringArray("body") instance=ExtResource("5_ivpfp")]
+body = NodePath("..")
+
+[node name="MeleeComponent" parent="Components" instance=ExtResource("6_upolc")]
+scale = Vector2(2, 2)
+
+[node name="ShootComponent" parent="Components" instance=ExtResource("7_63ljq")]
+rotation = -1.5708
+scale = Vector2(3.5, 3.5)
+
+[node name="PatrolComponent" parent="Components" instance=ExtResource("8_moobo")]
+
+[node name="NeighborComponent" parent="Components" instance=ExtResource("9_p6ua1")]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-0.5, 0)
+shape = SubResource("CircleShape2D_jqilp")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("10_7s150")

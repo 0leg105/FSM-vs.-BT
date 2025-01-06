@@ -8,10 +8,7 @@ func _enter_tree() -> void:
 	super._enter_tree()
 	debug_box = get_tree().get_first_node_in_group("DebugBox")
 
-func _ready() -> void:
-	pass
-
 func _process(delta: float) -> void:
-	look_at_component.look_at_pos(state_manager.get_state("look_at"))
 	vision_component.update()
 	fsm.update(delta)
+	look_at_component.look_at_pos(state_manager.get_state("look_at"))

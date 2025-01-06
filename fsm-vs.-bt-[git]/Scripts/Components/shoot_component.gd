@@ -22,8 +22,11 @@ func _on_shoot_timer_timeout() -> void:
 	state_manager.update_state("bullets", bullets > 0)
 	if ray_cast.is_colliding():
 		var hit = ray_cast.get_collider()
+		print("hit: ", hit)
 		if hit.is_in_group("Player"):
 			print(hit.name, " Shoot")
+			state_manager.update_state("hits_on_enemy", state_manager.get_state("hits_on_enemy") + 1)
+			print(state_manager.get_state("hits_on_enemy"))
 
 func reload_gun() -> void:
 	if reload_timer.is_stopped():

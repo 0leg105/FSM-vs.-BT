@@ -19,5 +19,5 @@ func update(_delta: float):
 		move_component.go_to_position(target_position)
 	else:
 		patrol_component.set_patrol_node_entered(true)
-	if state_manager.get_state("player_visible"):
+	if state_manager.get_state("player_visible") or not state_manager.get_state("player_block_visited"):
 		fsm.change_state(self, "Alert")

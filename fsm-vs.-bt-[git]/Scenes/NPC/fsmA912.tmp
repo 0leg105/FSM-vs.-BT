@@ -1,9 +1,10 @@
-[gd_scene load_steps=20 format=3 uid="uid://drypu37fxyp3f"]
+[gd_scene load_steps=21 format=3 uid="uid://drypu37fxyp3f"]
 
 [ext_resource type="Script" path="res://Scripts/NPC/fsm_npc.gd" id="1_c8psb"]
 [ext_resource type="PackedScene" uid="uid://dioqirosh06ud" path="res://Scenes/Decisionsystems/Finite State Machine/Enemy/enemy_finite_state_machine.tscn" id="2_fx4d1"]
 [ext_resource type="PackedScene" uid="uid://cv6d8u23jbp7q" path="res://Scenes/Manager/state_manager.tscn" id="2_so42k"]
 [ext_resource type="Texture2D" uid="uid://tigfn7qc531t" path="res://images/icon_red.png" id="3_gbnpq"]
+[ext_resource type="PackedScene" uid="uid://bohilm24n28vt" path="res://Scenes/Decisionsystems/Finite State Machine/Enemy/States/idle.tscn" id="3_ttqmh"]
 [ext_resource type="PackedScene" uid="uid://br485uyskiofn" path="res://Scenes/Decisionsystems/Finite State Machine/Enemy/States/alert.tscn" id="4_eymyp"]
 [ext_resource type="PackedScene" uid="uid://by1jgu4v3xcee" path="res://Scenes/Decisionsystems/Finite State Machine/Enemy/States/reload.tscn" id="5_5vebs"]
 [ext_resource type="PackedScene" uid="uid://bv37asx32gdul" path="res://Scenes/Decisionsystems/Finite State Machine/Enemy/States/melee.tscn" id="6_fgwho"]
@@ -28,8 +29,14 @@ script = ExtResource("1_c8psb")
 
 [node name="StateManager" parent="." instance=ExtResource("2_so42k")]
 
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-0.5, 0)
+shape = SubResource("CircleShape2D_uywa0")
+
 [node name="Enemy Finite State Machine" parent="." node_paths=PackedStringArray("initial_state") instance=ExtResource("2_fx4d1")]
-initial_state = NodePath("Patrol")
+initial_state = NodePath("Idle")
+
+[node name="Idle" parent="Enemy Finite State Machine" instance=ExtResource("3_ttqmh")]
 
 [node name="Alert" parent="Enemy Finite State Machine" instance=ExtResource("4_eymyp")]
 
@@ -42,7 +49,7 @@ melee_component = NodePath("../../Components/MeleeComponent")
 [node name="Reload" parent="Enemy Finite State Machine" node_paths=PackedStringArray("shoot_component") instance=ExtResource("5_5vebs")]
 shoot_component = NodePath("../../Components/ShootComponent")
 
-[node name="SearchPlayer" parent="Enemy Finite State Machine" node_paths=PackedStringArray("move_component", "player_block_component") instance=ExtResource("8_tnvut")]
+[node name="Search Player" parent="Enemy Finite State Machine" node_paths=PackedStringArray("move_component", "player_block_component") instance=ExtResource("8_tnvut")]
 move_component = NodePath("../../Components/MoveComponent")
 player_block_component = NodePath("../../Components/PlayerBlockComponent")
 
@@ -65,7 +72,6 @@ body = NodePath("..")
 sprite = NodePath("../../Sprite2D")
 
 [node name="MeleeComponent" parent="Components" instance=ExtResource("17_5qoou")]
-scale = Vector2(2, 2)
 
 [node name="ShootComponent" parent="Components" instance=ExtResource("18_fbswb")]
 rotation = -1.5708
@@ -74,10 +80,6 @@ scale = Vector2(3.5, 3.5)
 [node name="PatrolComponent" parent="Components" instance=ExtResource("18_t7tem")]
 
 [node name="NeighborComponent" parent="Components" instance=ExtResource("19_kubh0")]
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(-0.5, 0)
-shape = SubResource("CircleShape2D_uywa0")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture = ExtResource("3_gbnpq")

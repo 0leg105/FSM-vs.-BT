@@ -1,12 +1,8 @@
 extends Component
 class_name MeleeComponent
 
-@onready var ray_cast: RayCast2D = $RayCast3D
+@onready var ray_cast: RayCast2D = $RayCast2D
 @onready var timer: Timer = $Timer
-const MELEE_RANGE: float = 4
-
-#func _ready() -> void:
-	#ray_cast.target_position.z = -1 * MELEE_RANGE
 
 func melee_player() -> bool:
 	if timer.is_stopped():
@@ -19,3 +15,5 @@ func _on_timer_timeout() -> void:
 		var hit = ray_cast.get_collider()
 		if hit.is_in_group("Player"):
 			print(hit.name, " meleed")
+			state_manager.update_state("hits_on_enemy", state_manager.get_state("hits_on_enemy") + 1)
+			print(state_manager.get_state("hits_on_enemy"))
