@@ -12,8 +12,6 @@ func _ready() -> void:
 	pass
 
 func _process(delta: float) -> void:
-	#move_component.go_to_position(debug_box.global_position)
-	print(state_manager.get_state("player_block_visited"))
 	look_at_component.look_at_pos(state_manager.get_state("look_at"))
 	vision_component.update()
 	fsm.update(delta)

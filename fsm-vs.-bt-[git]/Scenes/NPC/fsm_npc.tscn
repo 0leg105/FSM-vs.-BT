@@ -1,4 +1,4 @@
-[gd_scene load_steps=20 format=3 uid="uid://drypu37fxyp3f"]
+[gd_scene load_steps=21 format=3 uid="uid://drypu37fxyp3f"]
 
 [ext_resource type="Script" path="res://Scripts/NPC/fsm_npc.gd" id="1_c8psb"]
 [ext_resource type="PackedScene" uid="uid://dioqirosh06ud" path="res://Scenes/Decisionsystems/Finite State Machine/Enemy/enemy_finite_state_machine.tscn" id="2_fx4d1"]
@@ -18,6 +18,7 @@
 [ext_resource type="PackedScene" uid="uid://bk78pfbavd81i" path="res://Scenes/Components/NPC/melee_component.tscn" id="17_5qoou"]
 [ext_resource type="PackedScene" uid="uid://cwts430jak01v" path="res://Scenes/Components/NPC/shoot_component.tscn" id="18_fbswb"]
 [ext_resource type="PackedScene" uid="uid://cctjop4oihtr7" path="res://Scenes/Components/NPC/patrol_component.tscn" id="18_t7tem"]
+[ext_resource type="PackedScene" uid="uid://dh7afqna0d576" path="res://Scenes/Components/NPC/neighbor_component.tscn" id="19_kubh0"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_uywa0"]
 radius = 88.45
@@ -42,11 +43,14 @@ initial_state = NodePath("Idle")
 
 [node name="Alert" parent="Enemy Finite State Machine" instance=ExtResource("4_eymyp")]
 
-[node name="Shoot" parent="Enemy Finite State Machine" instance=ExtResource("7_r4yuh")]
+[node name="Shoot" parent="Enemy Finite State Machine" node_paths=PackedStringArray("shoot_component") instance=ExtResource("7_r4yuh")]
+shoot_component = NodePath("../../Components/ShootComponent")
 
-[node name="Melee" parent="Enemy Finite State Machine" instance=ExtResource("6_fgwho")]
+[node name="Melee" parent="Enemy Finite State Machine" node_paths=PackedStringArray("melee_component") instance=ExtResource("6_fgwho")]
+melee_component = NodePath("../../Components/MeleeComponent")
 
-[node name="Reload" parent="Enemy Finite State Machine" instance=ExtResource("5_5vebs")]
+[node name="Reload" parent="Enemy Finite State Machine" node_paths=PackedStringArray("shoot_component") instance=ExtResource("5_5vebs")]
+shoot_component = NodePath("../../Components/ShootComponent")
 
 [node name="Search Player" parent="Enemy Finite State Machine" node_paths=PackedStringArray("move_component", "player_block_component") instance=ExtResource("8_tnvut")]
 move_component = NodePath("../../Components/MoveComponent")
@@ -73,6 +77,7 @@ sprite = NodePath("../../Sprite2D")
 [node name="MeleeComponent" parent="Components" instance=ExtResource("17_5qoou")]
 
 [node name="ShootComponent" parent="Components" instance=ExtResource("18_fbswb")]
-script = null
 
 [node name="PatrolComponent" parent="Components" instance=ExtResource("18_t7tem")]
+
+[node name="NeighborComponent" parent="Components" instance=ExtResource("19_kubh0")]

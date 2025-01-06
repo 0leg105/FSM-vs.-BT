@@ -7,7 +7,7 @@ func _enter_tree() -> void:
 	self.set_state("bullets", true)
 	self.set_state("player_visible", false)
 	self.set_state("player_eliminated", false)
-	#self.set_state("at_target", false)
+	self.set_state("at_target", false)
 	self.set_state("player_block_visited", false)
 	self.set_state("look_at", Vector2.ZERO)
 	self.set_state("last_seen_player_pos", Vector2(100,100))

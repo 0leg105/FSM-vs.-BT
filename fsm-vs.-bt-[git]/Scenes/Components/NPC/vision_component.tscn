@@ -9,10 +9,9 @@ script = ExtResource("1_vdmnk")
 [node name="Area2D" type="Area2D" parent="."]
 
 [node name="Polygon2D" parent="Area2D" instance=ExtResource("2_8kumo")]
-position = Vector2(0, -16)
-scale = Vector2(1, 0.795)
+position = Vector2(0, -21)
 polygon = PackedVector2Array(-52.1671, 139.814, 56.0313, 139.814, 0, 21)
 
 [node name="RayCast2D" type="RayCast2D" parent="."]
-scale = Vector2(0.599999, 1)
-target_position = Vector2(0, 100)
+scale = Vector2(1, 1.667)
+target_position = Vector2(0, 80)

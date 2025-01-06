@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" path="res://Scripts/Components/shoot_component.gd" id="1_yl0pj"]
 
-[node name="ShootComponent" type="Node2D" groups=["Component"]]
+[node name="ShootComponent" type="Node2D"]
 script = ExtResource("1_yl0pj")
 
 [node name="ShootTimer" type="Timer" parent="."]
@@ -14,6 +14,7 @@ one_shot = true
 
 [node name="RayCast2D" type="RayCast2D" parent="."]
 modulate = Color(1, 0, 1, 1)
+target_position = Vector2(0, 200)
 
 [connection signal="timeout" from="ShootTimer" to="." method="_on_shoot_timer_timeout"]
 [connection signal="timeout" from="ReloadTimer" to="." method="_on_reload_timer_timeout"]

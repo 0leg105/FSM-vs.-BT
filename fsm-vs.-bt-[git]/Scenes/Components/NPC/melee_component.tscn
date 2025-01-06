@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" path="res://Scripts/Components/melee_component.gd" id="1_0hal0"]
 
-[node name="MeleeComponent" type="Node2D" groups=["Component"]]
+[node name="MeleeComponent" type="Node2D"]
 script = ExtResource("1_0hal0")
 
 [node name="Timer" type="Timer" parent="."]
