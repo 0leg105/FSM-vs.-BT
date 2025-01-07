@@ -1,5 +1,6 @@
-[gd_scene load_steps=12 format=3 uid="uid://bxt0hiitqfo82"]
+[gd_scene load_steps=13 format=3 uid="uid://bxt0hiitqfo82"]
 
+[ext_resource type="Script" path="res://Scripts/NPC/bt_npc.gd" id="1_kfl76"]
 [ext_resource type="PackedScene" uid="uid://cv6d8u23jbp7q" path="res://Scenes/Manager/state_manager.tscn" id="1_xsfom"]
 [ext_resource type="PackedScene" uid="uid://b3fhiewtn54gx" path="res://Scenes/Components/NPC/move_component.tscn" id="2_60w8x"]
 [ext_resource type="PackedScene" uid="uid://b35x0alftv7nc" path="res://Scenes/Components/NPC/vision_component.tscn" id="3_wkigv"]
@@ -15,6 +16,8 @@
 radius = 88.45
 
 [node name="BT NPC" type="CharacterBody2D"]
+collision_mask = 0
+script = ExtResource("1_kfl76")
 
 [node name="StateManager" parent="." instance=ExtResource("1_xsfom")]
 

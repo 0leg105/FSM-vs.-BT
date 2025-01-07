@@ -28,7 +28,7 @@ func get_patrol_nodes() -> Array[PatrolNode]:
 
 func increment_fsm_hits() -> void:
 	fsm_hits += 1
-	print(fsm_hits)
+	#print(fsm_hits)
 
 func increment_bt_hits() -> void:
 	bt_hits += 1

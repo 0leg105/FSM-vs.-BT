@@ -30,7 +30,8 @@ position = Vector2(392, 352)
 
 [node name="FsmNpcSpawner" parent="." instance=ExtResource("2_ib4qg")]
 position = Vector2(1514, 229)
-max_npc_count = 5
+max_npc_count = 10
+wait_time = 1.0
 
 [node name="PatrolNodes" type="Node2D" parent="."]
 position = Vector2(409, 434)
