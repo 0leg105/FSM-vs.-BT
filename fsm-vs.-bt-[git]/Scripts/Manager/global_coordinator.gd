@@ -1,6 +1,8 @@
 extends Node
 class_name GlobalCoordinator
 
+var bt_hits: int = 0
+var fsm_hits: int = 0
 @export var player: Node
 @export var player_block: PlayerBlock
 @export var patrol_nodes: Array[PatrolNode]
@@ -23,3 +25,10 @@ func get_patrol_nodes() -> Array[PatrolNode]:
 	else:
 		print("NO PATROL NODES EXPORTED IN GLOBALCOORDINATOR")
 		return []
+
+func increment_fsm_hits() -> void:
+	fsm_hits += 1
+	print(fsm_hits)
+
+func increment_bt_hits() -> void:
+	bt_hits += 1

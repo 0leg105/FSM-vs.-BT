@@ -11,7 +11,6 @@ func _enter_tree() -> void:
 	self.set_state("player_block_visited", false)
 	self.set_state("look_at", Vector2.ZERO)
 	self.set_state("last_seen_player_pos", Vector2(100,100))
-	self.set_state("hits_on_enemy", 0)
 
 func get_current_state() -> Dictionary:
 	return self.current_state
