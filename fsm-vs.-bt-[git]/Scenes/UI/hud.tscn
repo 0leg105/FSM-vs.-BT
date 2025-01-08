@@ -1,0 +1,142 @@
+[gd_scene load_steps=18 format=3 uid="uid://dx4jwetbrx5xt"]
+
+[ext_resource type="Texture2D" uid="uid://vqagxe2ltve6" path="res://images/1051273.png" id="1_2nrye"]
+[ext_resource type="Script" path="res://Scenes/UI/hud.gd" id="1_vcxba"]
+[ext_resource type="StyleBox" uid="uid://b1y14ayvtl3s1" path="res://textures/button_hover.tres" id="3_ax4oa"]
+[ext_resource type="StyleBox" uid="uid://bwj2y3wr3s2ov" path="res://textures/button_click.tres" id="4_u8h5v"]
+[ext_resource type="StyleBox" uid="uid://dxunp2fqjt78b" path="res://textures/button_default.tres" id="5_vh6po"]
+
+[sub_resource type="SystemFont" id="SystemFont_osctj"]
+font_names = PackedStringArray("Bahnschrift", "Arial", "Sans-Serif")
+
+[sub_resource type="LabelSettings" id="LabelSettings_pavx5"]
+font = SubResource("SystemFont_osctj")
+font_size = 20
+font_color = Color(1, 0.647059, 0, 1)
+
+[sub_resource type="SystemFont" id="SystemFont_72va4"]
+font_names = PackedStringArray("Bahnschrift", "Arial", "Sans-Serif")
+
+[sub_resource type="LabelSettings" id="LabelSettings_0jb3u"]
+font = SubResource("SystemFont_72va4")
+font_size = 20
+font_color = Color(1, 0.647059, 0, 1)
+
+[sub_resource type="SystemFont" id="SystemFont_1qgqe"]
+font_names = PackedStringArray("Bahnschrift", "Arial", "Sans-Serif")
+
+[sub_resource type="LabelSettings" id="LabelSettings_jskqs"]
+font = SubResource("SystemFont_1qgqe")
+font_size = 20
+font_color = Color(1, 0.647059, 0, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_jf7sw"]
+bg_color = Color(0.282353, 0.337255, 0.537255, 1)
+
+[sub_resource type="InputEventKey" id="InputEventKey_xq1g8"]
+device = -1
+keycode = 4194305
+
+[sub_resource type="Shortcut" id="Shortcut_ja2ko"]
+events = [SubResource("InputEventKey_xq1g8")]
+
+[sub_resource type="LabelSettings" id="LabelSettings_gxdl4"]
+font_size = 35
+font_color = Color(1, 0.647059, 0, 1)
+
+[sub_resource type="InputEventKey" id="InputEventKey_7vl3e"]
+device = -1
+keycode = 4194305
+
+[sub_resource type="Shortcut" id="Shortcut_mmi5u"]
+events = [SubResource("InputEventKey_7vl3e")]
+
+[node name="Hud" type="Node2D"]
+process_mode = 3
+script = ExtResource("1_vcxba")
+
+[node name="HitsDescription" type="Label" parent="."]
+offset_left = 1622.0
+offset_top = 968.0
+offset_right = 1847.0
+offset_bottom = 1025.0
+text = "Finite State Machine hits:
+Behavior Tree hits:"
+label_settings = SubResource("LabelSettings_pavx5")
+
+[node name="FSMHits" type="Label" parent="."]
+offset_left = 1843.0
+offset_top = 966.0
+offset_right = 1905.0
+offset_bottom = 989.0
+text = "0"
+label_settings = SubResource("LabelSettings_0jb3u")
+horizontal_alignment = 2
+
+[node name="BTHits" type="Label" parent="."]
+offset_left = 1843.0
+offset_top = 992.0
+offset_right = 1905.0
+offset_bottom = 1015.0
+text = "0"
+label_settings = SubResource("LabelSettings_jskqs")
+horizontal_alignment = 2
+
+[node name="CloseButton" type="Button" parent="."]
+offset_left = 1880.0
+offset_right = 1920.0
+offset_bottom = 40.0
+theme_override_styles/normal = SubResource("StyleBoxFlat_jf7sw")
+shortcut = SubResource("Shortcut_ja2ko")
+icon = ExtResource("1_2nrye")
+expand_icon = true
+
+[node name="ColorRect" type="ColorRect" parent="."]
+visible = false
+offset_left = 560.0
+offset_top = 340.0
+offset_right = 1360.0
+offset_bottom = 740.0
+color = Color(0.282353, 0.337255, 0.537255, 1)
+
+[node name="CenterContainer" type="CenterContainer" parent="ColorRect"]
+layout_mode = 0
+offset_right = 799.0
+offset_bottom = 114.0
+
+[node name="Label" type="Label" parent="ColorRect/CenterContainer"]
+layout_mode = 2
+text = "Game paused"
+label_settings = SubResource("LabelSettings_gxdl4")
+
+[node name="CenterContainer2" type="CenterContainer" parent="ColorRect"]
+layout_mode = 0
+offset_top = 132.0
+offset_right = 801.0
+offset_bottom = 260.0
+
+[node name="ContinueButton" type="Button" parent="ColorRect/CenterContainer2"]
+custom_minimum_size = Vector2(500, 50)
+layout_mode = 2
+theme_override_styles/hover = ExtResource("3_ax4oa")
+theme_override_styles/pressed = ExtResource("4_u8h5v")
+theme_override_styles/normal = ExtResource("5_vh6po")
+shortcut = SubResource("Shortcut_mmi5u")
+text = "Continue game"
+
+[node name="CenterContainer3" type="CenterContainer" parent="ColorRect"]
+offset_top = 207.0
+offset_right = 801.0
+offset_bottom = 335.0
+
+[node name="ExitButton" type="Button" parent="ColorRect/CenterContainer3"]
+custom_minimum_size = Vector2(500, 50)
+layout_mode = 2
+theme_override_styles/hover = ExtResource("3_ax4oa")
+theme_override_styles/pressed = ExtResource("4_u8h5v")
+theme_override_styles/normal = ExtResource("5_vh6po")
+text = "Exit Game"
+
+[connection signal="pressed" from="CloseButton" to="." method="_on_close_button_pressed"]
+[connection signal="pressed" from="ColorRect/CenterContainer2/ContinueButton" to="." method="_on_continue_button_pressed"]
+[connection signal="pressed" from="ColorRect/CenterContainer3/ExitButton" to="." method="_on_exit_button_pressed"]

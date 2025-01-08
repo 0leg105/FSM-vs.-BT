@@ -1,0 +1,179 @@
+[gd_scene load_steps=17 format=3 uid="uid://wxqrlxmoqpm"]
+
+[ext_resource type="StyleBox" uid="uid://bwj2y3wr3s2ov" path="res://textures/button_click.tres" id="1_bq1nd"]
+[ext_resource type="Texture2D" uid="uid://3shihjkyjpea" path="res://images/play_icon.svg" id="1_il54c"]
+[ext_resource type="Script" path="res://Scripts/UI/menu.gd" id="1_mk1k2"]
+[ext_resource type="StyleBox" uid="uid://dxunp2fqjt78b" path="res://textures/button_default.tres" id="1_og84l"]
+[ext_resource type="StyleBox" uid="uid://b1y14ayvtl3s1" path="res://textures/button_hover.tres" id="2_53mi6"]
+
+[sub_resource type="SystemFont" id="SystemFont_xb7bb"]
+font_names = PackedStringArray("Bahnschrift")
+font_weight = 700
+
+[sub_resource type="LabelSettings" id="LabelSettings_1isab"]
+font_size = 60
+font_color = Color(1, 0.647059, 0, 1)
+
+[sub_resource type="SystemFont" id="SystemFont_0jvro"]
+font_names = PackedStringArray("Bahnschrift")
+
+[sub_resource type="LabelSettings" id="LabelSettings_1ucne"]
+font = SubResource("SystemFont_0jvro")
+font_size = 24
+
+[sub_resource type="SystemFont" id="SystemFont_s32cq"]
+font_names = PackedStringArray("Bahnschrift")
+font_weight = 350
+
+[sub_resource type="LabelSettings" id="LabelSettings_rjrxr"]
+font = SubResource("SystemFont_s32cq")
+font_size = 20
+
+[sub_resource type="SystemFont" id="SystemFont_wk02x"]
+font_names = PackedStringArray("Bahnschrift")
+
+[sub_resource type="LabelSettings" id="LabelSettings_n1qe1"]
+font = SubResource("SystemFont_wk02x")
+font_size = 20
+
+[sub_resource type="SystemFont" id="SystemFont_h70ek"]
+font_names = PackedStringArray("Bahnschrift")
+
+[sub_resource type="SystemFont" id="SystemFont_pbpke"]
+font_names = PackedStringArray("Bahnschrift", "Arial", "Sans-Serif")
+
+[sub_resource type="LabelSettings" id="LabelSettings_rgbfh"]
+font = SubResource("SystemFont_pbpke")
+font_size = 20
+
+[node name="Menu" type="Node2D"]
+script = ExtResource("1_mk1k2")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+offset_right = 1920.0
+offset_bottom = 1080.0
+color = Color(0.133333, 0.164706, 0.286275, 1)
+
+[node name="CenterContainer" type="CenterContainer" parent="."]
+offset_right = 1920.0
+offset_bottom = 200.0
+
+[node name="Title" type="Label" parent="CenterContainer"]
+layout_mode = 2
+theme_override_fonts/font = SubResource("SystemFont_xb7bb")
+text = "Finite-State Machine vs. Behavior Tree"
+label_settings = SubResource("LabelSettings_1isab")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="NormalMode" type="ColorRect" parent="."]
+offset_left = 1040.0
+offset_top = 400.0
+offset_right = 1640.0
+offset_bottom = 800.0
+color = Color(0.28186, 0.335417, 0.538887, 1)
+
+[node name="CenterContainer" type="CenterContainer" parent="NormalMode"]
+layout_mode = 0
+offset_right = 598.0
+offset_bottom = 59.0
+
+[node name="GameModeLabel" type="Label" parent="NormalMode/CenterContainer"]
+layout_mode = 2
+text = "Normal Mode"
+label_settings = SubResource("LabelSettings_1ucne")
+
+[node name="MaxNPCsLabel" type="Label" parent="NormalMode"]
+layout_mode = 0
+offset_left = 26.0
+offset_top = 152.0
+offset_right = 268.0
+offset_bottom = 175.0
+text = "Maximum amount of NPCs:"
+label_settings = SubResource("LabelSettings_rjrxr")
+
+[node name="SpawnWaitTimeLabel" type="Label" parent="NormalMode"]
+layout_mode = 0
+offset_left = 26.0
+offset_top = 84.0
+offset_right = 187.0
+offset_bottom = 107.0
+text = "Time period between spawns:"
+label_settings = SubResource("LabelSettings_n1qe1")
+
+[node name="StartButton" type="Button" parent="NormalMode"]
+texture_filter = 1
+layout_mode = 0
+offset_left = 320.0
+offset_top = 303.0
+offset_right = 570.0
+offset_bottom = 373.0
+mouse_default_cursor_shape = 2
+theme_override_fonts/font = SubResource("SystemFont_h70ek")
+theme_override_font_sizes/font_size = 20
+theme_override_styles/hover_pressed = ExtResource("1_bq1nd")
+theme_override_styles/hover = ExtResource("2_53mi6")
+theme_override_styles/pressed = ExtResource("1_bq1nd")
+theme_override_styles/normal = ExtResource("1_og84l")
+text = "Start"
+icon = ExtResource("1_il54c")
+alignment = 0
+icon_alignment = 2
+expand_icon = true
+
+[node name="SpawnWaitTimeInput" type="SpinBox" parent="NormalMode"]
+layout_mode = 0
+offset_left = 368.0
+offset_top = 70.0
+offset_right = 568.0
+offset_bottom = 120.0
+min_value = 1.0
+max_value = 60.0
+value = 5.0
+alignment = 2
+
+[node name="MaxNPCsInput" type="SpinBox" parent="NormalMode"]
+offset_left = 368.0
+offset_top = 140.0
+offset_right = 568.0
+offset_bottom = 190.0
+min_value = 1.0
+value = 5.0
+alignment = 2
+
+[node name="ErrorLabel" type="Label" parent="NormalMode"]
+visible = false
+layout_mode = 0
+offset_left = 19.0
+offset_top = 297.0
+offset_right = 316.0
+offset_bottom = 381.0
+theme_override_colors/font_color = Color(1, 0.188235, 0.141176, 1)
+text = "This didn't work! You need to put in valid numbers into the time period and maximum amount of NPCs fields."
+autowrap_mode = 3
+max_lines_visible = 5
+
+[node name="Timer" type="Timer" parent="NormalMode/ErrorLabel"]
+wait_time = 10.0
+one_shot = true
+
+[node name="Label" type="Label" parent="NormalMode"]
+layout_mode = 0
+offset_left = 27.0
+offset_top = 216.0
+offset_right = 569.0
+offset_bottom = 289.0
+text = "In normal mode you will fight against the amount of NPCs configurable above. All of these NPCs will use the Finite-State Machine."
+label_settings = SubResource("LabelSettings_rgbfh")
+autowrap_mode = 3
+max_lines_visible = 5
+
+[node name="ColorRect2" type="ColorRect" parent="."]
+offset_left = 240.0
+offset_top = 400.0
+offset_right = 840.0
+offset_bottom = 800.0
+color = Color(0, 0.505882, 0.505882, 1)
+
+[connection signal="pressed" from="NormalMode/StartButton" to="." method="_on_start_button_pressed"]
+[connection signal="timeout" from="NormalMode/ErrorLabel/Timer" to="." method="_on_error_timer_timeout"]

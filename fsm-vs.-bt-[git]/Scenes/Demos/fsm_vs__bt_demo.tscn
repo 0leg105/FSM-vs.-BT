@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://cmkl0oi88a0ax"]
+[gd_scene load_steps=10 format=3 uid="uid://cmkl0oi88a0ax"]
 
 [ext_resource type="PackedScene" uid="uid://xwifhd41ifg0" path="res://Scenes/Manager/global_coordinator.tscn" id="1_e6t2j"]
 [ext_resource type="PackedScene" uid="uid://ck8bmislhupdm" path="res://Scenes/Map/debug_box.tscn" id="2_0vidy"]
@@ -7,6 +7,7 @@
 [ext_resource type="PackedScene" uid="uid://cqsj5b8qblspt" path="res://Scenes/Map/npc_spawner.tscn" id="2_ib4qg"]
 [ext_resource type="PackedScene" uid="uid://dduh8kcvnesk7" path="res://Scenes/Map/patrol_node.tscn" id="5_7ixm2"]
 [ext_resource type="PackedScene" uid="uid://dtxs2a0p0stwh" path="res://Scenes/Player/player.tscn" id="6_qvy4h"]
+[ext_resource type="PackedScene" uid="uid://dx4jwetbrx5xt" path="res://Scenes/UI/hud.tscn" id="8_mt1kx"]
 
 [sub_resource type="NavigationPolygon" id="NavigationPolygon_vbtsb"]
 vertices = PackedVector2Array(1290, 394, 1802, 470, 1526, 470, 1098, 458, 1206, 394, 906, 566, 822, 566, 394, 554, 438, 554, 714, 906, 1078, 1014.87, 10.9609, 1015.98, 202, 970, 630, 906, 1718, 330, 1802, 330, 118, 970, 1802, 54, 1907.99, 12.9688, 1907, 1014.01, 1866, 822, 842, 10.1875, 1718, 54, 330, 202, 330, 118, 470, 118, 470, 394, 438, 470, 906, 842, 1078, 758, 822, 842, 714, 630, 630, 630, 7.03125, 8.02344, 118, 694, 1866, 906, 1162, 1014.78, 1590, 906, 1450, 906, 1366, 906, 1366, 630, 1162, 758, 1206, 554, 1526, 554, 1802, 554, 1590, 822, 1450, 630, 1290, 118, 1206, 118, 202, 694, 118, 554, 118, 470, 54, 202, 1482, 554, 1482, 470, 1206, 470, 714, 554, 714, 470, 1014, 458, 554, 394, 554, 118, 758, 266, 394, 470, 1098, 182, 1014, 182, 842, 266, 758, 9.96875, 54, 118)
@@ -14,6 +15,7 @@ polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3, 4), PackedInt32
 outlines = Array[PackedVector2Array]([PackedVector2Array(-3, -2, 1, 1026, 1917, 1024, 1918, 3)])
 
 [node name="FSM vs_ BT DEMO" type="Node2D"]
+process_mode = 1
 
 [node name="GlobalCoordinator" parent="." node_paths=PackedStringArray("player", "player_block", "patrol_nodes") instance=ExtResource("1_e6t2j")]
 player = NodePath("../Player")
@@ -94,3 +96,5 @@ position = Vector2(409, 434)
 
 [node name="Player" parent="." groups=["Player"] instance=ExtResource("6_qvy4h")]
 position = Vector2(394, 357)
+
+[node name="Hud" parent="." instance=ExtResource("8_mt1kx")]

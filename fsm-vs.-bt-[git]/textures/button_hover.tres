@@ -1,0 +1,15 @@
+[gd_resource type="StyleBoxTexture" load_steps=3 format=3 uid="uid://b1y14ayvtl3s1"]
+
+[sub_resource type="Gradient" id="Gradient_x6geq"]
+offsets = PackedFloat32Array(0)
+colors = PackedColorArray(0.357396, 0.415401, 0.640807, 1)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_3ooix"]
+gradient = SubResource("Gradient_x6geq")
+
+[resource]
+texture = SubResource("GradientTexture1D_3ooix")
+texture_margin_left = 15.0
+texture_margin_top = 15.0
+texture_margin_right = 15.0
+texture_margin_bottom = 15.0
