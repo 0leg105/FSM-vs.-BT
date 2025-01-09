@@ -3,6 +3,13 @@ extends Node2D
 
 @onready var pause_menu = $ColorRect
 @onready var close_button = $CloseButton
+var show_navigation: bool = false :
+	set(value):
+		show_navigation = value
+		var nav_agents = get_tree().get_nodes_in_group("navigation_agents")
+		for agent in nav_agents:
+			(agent as NavigationAgent2D).debug_enabled = value
+
 var show_state_label: bool = false :
 	set(value):
 		show_state_label = value
@@ -31,3 +38,6 @@ func _on_exit_button_pressed() -> void:
 
 func _on_show_state_button_toggled(toggled_on: bool) -> void:
 	show_state_label = toggled_on
+
+func _on_show_navigation_routes_button_toggled(toggled_on: bool) -> void:
+	show_navigation = toggled_on

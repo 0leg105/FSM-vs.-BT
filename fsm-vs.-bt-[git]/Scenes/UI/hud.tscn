@@ -99,7 +99,6 @@ icon = ExtResource("1_2nrye")
 expand_icon = true
 
 [node name="ColorRect" type="ColorRect" parent="."]
-visible = false
 offset_left = 560.0
 offset_top = 340.0
 offset_right = 1360.0
@@ -154,7 +153,16 @@ offset_bottom = 39.0
 theme_override_fonts/font = SubResource("SystemFont_rp6jx")
 text = "Show state labels"
 
+[node name="ShowNavigationRoutesButton" type="CheckButton" parent="ColorRect"]
+offset_left = 576.0
+offset_top = 33.0
+offset_right = 792.0
+offset_bottom = 64.0
+theme_override_fonts/font = SubResource("SystemFont_rp6jx")
+text = "Show navigation routes"
+
 [connection signal="pressed" from="CloseButton" to="." method="_on_close_button_pressed"]
 [connection signal="pressed" from="ColorRect/CenterContainer2/ContinueButton" to="." method="_on_continue_button_pressed"]
 [connection signal="pressed" from="ColorRect/CenterContainer3/ExitButton" to="." method="_on_exit_button_pressed"]
 [connection signal="toggled" from="ColorRect/ShowStateButton" to="." method="_on_show_state_button_toggled"]
+[connection signal="toggled" from="ColorRect/ShowNavigationRoutesButton" to="." method="_on_show_navigation_routes_button_toggled"]

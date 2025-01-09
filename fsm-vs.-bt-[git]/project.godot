@@ -24,6 +24,7 @@ window/size/viewport_height=1024
 
 fsm_npc=""
 hud=""
+navigation_agents=""
 
 [layer_names]
 
