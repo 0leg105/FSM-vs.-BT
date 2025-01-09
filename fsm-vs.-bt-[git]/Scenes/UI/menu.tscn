@@ -61,7 +61,7 @@ offset_bottom = 200.0
 [node name="Title" type="Label" parent="CenterContainer"]
 layout_mode = 2
 theme_override_fonts/font = SubResource("SystemFont_xb7bb")
-text = "Finite-State Machine vs. Behavior Tree
+text = "Finite-State Machine and Behavior Tree
 "
 label_settings = SubResource("LabelSettings_1isab")
 horizontal_alignment = 1
@@ -184,7 +184,7 @@ offset_bottom = 59.0
 
 [node name="GameModeLabel" type="Label" parent="FSMVsBTMode/CenterContainer"]
 layout_mode = 2
-text = "Finite-State Machine vs. Behavior Tree"
+text = "Finite-State Machine and Behavior Tree"
 label_settings = SubResource("LabelSettings_1ucne")
 
 [node name="StartButton" type="Button" parent="FSMVsBTMode"]
@@ -232,7 +232,7 @@ offset_bottom = 283.0
 [node name="Label" type="Label" parent="FSMVsBTMode/CenterContainer2"]
 custom_minimum_size = Vector2(550, 200)
 layout_mode = 2
-text = "In FSM vs. BT mode you will fight against two NPCs: one of them will make it's decisions based on a Finite-State Machine while the other one will make it's decisions based on a behavior tree."
+text = "In Finite-State Machine and Behavior Tree mode you will fight against two NPCs: one of them will make it's decisions based on a Finite-State Machine while the other one will make it's decisions based on a behavior tree."
 label_settings = SubResource("LabelSettings_rgbfh")
 autowrap_mode = 3
 max_lines_visible = 5

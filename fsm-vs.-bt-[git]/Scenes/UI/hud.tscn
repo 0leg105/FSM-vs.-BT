@@ -1,4 +1,4 @@
-[gd_scene load_steps=19 format=3 uid="uid://dx4jwetbrx5xt"]
+[gd_scene load_steps=20 format=3 uid="uid://dx4jwetbrx5xt"]
 
 [ext_resource type="Texture2D" uid="uid://vqagxe2ltve6" path="res://images/1051273.png" id="1_2nrye"]
 [ext_resource type="Script" path="res://Scenes/UI/hud.gd" id="1_vcxba"]
@@ -44,7 +44,7 @@ keycode = 4194305
 events = [SubResource("InputEventKey_xq1g8")]
 
 [sub_resource type="LabelSettings" id="LabelSettings_gxdl4"]
-font_size = 35
+font_size = 30
 font_color = Color(1, 0.647059, 0, 1)
 
 [sub_resource type="InputEventKey" id="InputEventKey_7vl3e"]
@@ -57,6 +57,9 @@ events = [SubResource("InputEventKey_7vl3e")]
 [sub_resource type="SystemFont" id="SystemFont_rp6jx"]
 font_names = PackedStringArray("Bahnschrift")
 subpixel_positioning = 0
+
+[sub_resource type="LabelSettings" id="LabelSettings_umenc"]
+font_color = Color(1, 0.647059, 0, 1)
 
 [node name="Hud" type="Node2D" groups=["hud"]]
 process_mode = 3
@@ -98,31 +101,32 @@ shortcut = SubResource("Shortcut_ja2ko")
 icon = ExtResource("1_2nrye")
 expand_icon = true
 
-[node name="ColorRect" type="ColorRect" parent="."]
+[node name="Menu" type="ColorRect" parent="."]
 visible = false
 offset_left = 560.0
 offset_top = 340.0
 offset_right = 1360.0
-offset_bottom = 740.0
+offset_bottom = 646.0
 color = Color(0.282353, 0.337255, 0.537255, 1)
 
-[node name="CenterContainer" type="CenterContainer" parent="ColorRect"]
+[node name="CenterContainer" type="CenterContainer" parent="Menu"]
 layout_mode = 0
 offset_right = 799.0
 offset_bottom = 114.0
 
-[node name="Label" type="Label" parent="ColorRect/CenterContainer"]
+[node name="Label" type="Label" parent="Menu/CenterContainer"]
 layout_mode = 2
 text = "Game paused"
 label_settings = SubResource("LabelSettings_gxdl4")
 
-[node name="CenterContainer2" type="CenterContainer" parent="ColorRect"]
+[node name="CenterContainer2" type="CenterContainer" parent="Menu"]
 layout_mode = 0
-offset_top = 132.0
-offset_right = 801.0
-offset_bottom = 260.0
+offset_left = 1.0
+offset_top = 81.0
+offset_right = 802.0
+offset_bottom = 209.0
 
-[node name="ContinueButton" type="Button" parent="ColorRect/CenterContainer2"]
+[node name="ContinueButton" type="Button" parent="Menu/CenterContainer2"]
 custom_minimum_size = Vector2(500, 50)
 layout_mode = 2
 theme_override_styles/hover = ExtResource("3_ax4oa")
@@ -131,13 +135,14 @@ theme_override_styles/normal = ExtResource("5_vh6po")
 shortcut = SubResource("Shortcut_mmi5u")
 text = "Continue game"
 
-[node name="CenterContainer3" type="CenterContainer" parent="ColorRect"]
+[node name="CenterContainer3" type="CenterContainer" parent="Menu"]
 layout_mode = 0
-offset_top = 207.0
-offset_right = 801.0
-offset_bottom = 335.0
+offset_left = 1.0
+offset_top = 155.0
+offset_right = 802.0
+offset_bottom = 283.0
 
-[node name="ExitButton" type="Button" parent="ColorRect/CenterContainer3"]
+[node name="ExitButton" type="Button" parent="Menu/CenterContainer3"]
 custom_minimum_size = Vector2(500, 50)
 layout_mode = 2
 theme_override_styles/hover = ExtResource("3_ax4oa")
@@ -145,46 +150,61 @@ theme_override_styles/pressed = ExtResource("4_u8h5v")
 theme_override_styles/normal = ExtResource("5_vh6po")
 text = "Exit Game"
 
-[node name="ShowStateButton" type="CheckButton" parent="ColorRect"]
+[node name="Settings" type="ColorRect" parent="Menu"]
+offset_left = 800.0
+offset_right = 1050.0
+offset_bottom = 160.0
+color = Color(0.282353, 0.337255, 0.537255, 1)
+
+[node name="ShowStateButton" type="CheckButton" parent="Menu/Settings"]
 layout_mode = 0
-offset_left = 609.0
-offset_top = 8.0
-offset_right = 792.0
-offset_bottom = 39.0
+offset_left = 20.0
+offset_top = 40.0
+offset_right = 241.0
+offset_bottom = 71.0
 theme_override_fonts/font = SubResource("SystemFont_rp6jx")
 text = "Show state labels"
 
-[node name="ShowNavigationRoutesButton" type="CheckButton" parent="ColorRect"]
+[node name="ShowNavigationRoutesButton" type="CheckButton" parent="Menu/Settings"]
 layout_mode = 0
-offset_left = 576.0
-offset_top = 33.0
-offset_right = 792.0
-offset_bottom = 64.0
+offset_left = 20.0
+offset_top = 65.0
+offset_right = 241.0
+offset_bottom = 96.0
 theme_override_fonts/font = SubResource("SystemFont_rp6jx")
 text = "Show navigation routes"
 
-[node name="ShowVisionButton" type="CheckButton" parent="ColorRect"]
+[node name="ShowVisionButton" type="CheckButton" parent="Menu/Settings"]
 layout_mode = 0
-offset_left = 576.0
-offset_top = 57.0
-offset_right = 792.0
-offset_bottom = 88.0
+offset_left = 20.0
+offset_top = 89.0
+offset_right = 241.0
+offset_bottom = 120.0
 theme_override_fonts/font = SubResource("SystemFont_rp6jx")
 text = "Show vision triangles"
 
-[node name="ShowNeighborsButton" type="CheckButton" parent="ColorRect"]
+[node name="ShowNeighborsButton" type="CheckButton" parent="Menu/Settings"]
 layout_mode = 0
-offset_left = 576.0
-offset_top = 80.0
-offset_right = 792.0
-offset_bottom = 111.0
+offset_left = 20.0
+offset_top = 112.0
+offset_right = 241.0
+offset_bottom = 143.0
 theme_override_fonts/font = SubResource("SystemFont_rp6jx")
 text = "Show meele range"
 
+[node name="CenterContainer" type="CenterContainer" parent="Menu/Settings"]
+offset_right = 250.0
+offset_bottom = 42.0
+
+[node name="Label" type="Label" parent="Menu/Settings/CenterContainer"]
+layout_mode = 2
+text = "Settings"
+label_settings = SubResource("LabelSettings_umenc")
+
 [connection signal="pressed" from="CloseButton" to="." method="_on_close_button_pressed"]
-[connection signal="pressed" from="ColorRect/CenterContainer2/ContinueButton" to="." method="_on_continue_button_pressed"]
-[connection signal="pressed" from="ColorRect/CenterContainer3/ExitButton" to="." method="_on_exit_button_pressed"]
-[connection signal="toggled" from="ColorRect/ShowStateButton" to="." method="_on_show_state_button_toggled"]
-[connection signal="toggled" from="ColorRect/ShowNavigationRoutesButton" to="." method="_on_show_navigation_routes_button_toggled"]
-[connection signal="toggled" from="ColorRect/ShowVisionButton" to="." method="_on_show_vision_button_toggled"]
-[connection signal="toggled" from="ColorRect/ShowNeighborsButton" to="." method="_on_show_neighbors_button_toggled"]
+[connection signal="pressed" from="Menu/CenterContainer2/ContinueButton" to="." method="_on_continue_button_pressed"]
+[connection signal="pressed" from="Menu/CenterContainer3/ExitButton" to="." method="_on_exit_button_pressed"]
+[connection signal="toggled" from="Menu/Settings/ShowStateButton" to="." method="_on_show_state_button_toggled"]
+[connection signal="toggled" from="Menu/Settings/ShowNavigationRoutesButton" to="." method="_on_show_navigation_routes_button_toggled"]
+[connection signal="toggled" from="Menu/Settings/ShowVisionButton" to="." method="_on_show_vision_button_toggled"]
+[connection signal="toggled" from="Menu/Settings/ShowNeighborsButton" to="." method="_on_show_neighbors_button_toggled"]

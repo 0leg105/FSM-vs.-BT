@@ -1,7 +1,7 @@
 class_name HUD
 extends Node2D
 
-@onready var pause_menu = $ColorRect
+@onready var pause_menu = $Menu
 @onready var close_button = $CloseButton
 
 var show_neighbor_components: bool = false :
