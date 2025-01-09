@@ -1,4 +1,4 @@
-[gd_scene load_steps=20 format=3 uid="uid://drypu37fxyp3f"]
+[gd_scene load_steps=21 format=3 uid="uid://drypu37fxyp3f"]
 
 [ext_resource type="Script" path="res://Scripts/NPC/fsm_npc.gd" id="1_c8psb"]
 [ext_resource type="PackedScene" uid="uid://dioqirosh06ud" path="res://Scenes/Decisionsystems/Finite State Machine/Enemy/enemy_finite_state_machine.tscn" id="2_fx4d1"]
@@ -22,7 +22,10 @@
 [sub_resource type="CircleShape2D" id="CircleShape2D_uywa0"]
 radius = 88.45
 
-[node name="FSM NPC" type="CharacterBody2D"]
+[sub_resource type="LabelSettings" id="LabelSettings_0xmtn"]
+font_size = 50
+
+[node name="FSM NPC" type="CharacterBody2D" groups=["fsm_npc"]]
 scale = Vector2(0.25, 0.25)
 collision_mask = 0
 script = ExtResource("1_c8psb")
@@ -82,3 +85,14 @@ shape = SubResource("CircleShape2D_uywa0")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture = ExtResource("3_gbnpq")
+
+[node name="CenterContainer" type="CenterContainer" parent="."]
+offset_left = -404.0
+offset_top = -180.0
+offset_right = 396.0
+offset_bottom = -111.0
+
+[node name="StateLabel" type="Label" parent="CenterContainer"]
+layout_mode = 2
+text = "Current State"
+label_settings = SubResource("LabelSettings_0xmtn")

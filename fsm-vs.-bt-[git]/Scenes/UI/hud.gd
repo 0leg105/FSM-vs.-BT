@@ -1,30 +1,24 @@
+class_name HUD
 extends Node2D
 
 @onready var pause_menu = $ColorRect
 @onready var close_button = $CloseButton
-
-# Called when the node enters the scene tree for the first time.
-func _ready() -> void:
-	pass # Replace with function body.
-
-
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta: float) -> void:
-	pass
-
+var show_state_label: bool = false :
+	set(value):
+		show_state_label = value
+		for npc in get_tree().get_nodes_in_group("fsm_npc"):
+			npc.state_label.visible = value
+			npc.state_label.text = npc.fsm.current_state.state_name
 
 func _on_close_button_pressed() -> void:
 	get_tree().paused = true
 	pause_menu.visible = true
 	close_button.visible = false
 
-
 func _on_continue_button_pressed() -> void:
 	get_tree().paused = false
 	pause_menu.visible = false
 	close_button.visible = true
-
 
 func _on_exit_button_pressed() -> void:
 	pause_menu.visible = false
@@ -34,3 +28,6 @@ func _on_exit_button_pressed() -> void:
 	get_tree().root.add_child(menu)
 	get_tree().current_scene = menu
 	get_tree().paused = false
+
+func _on_show_state_button_toggled(toggled_on: bool) -> void:
+	show_state_label = toggled_on

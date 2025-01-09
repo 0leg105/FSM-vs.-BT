@@ -98,3 +98,4 @@ position = Vector2(409, 434)
 position = Vector2(394, 357)
 
 [node name="Hud" parent="." instance=ExtResource("8_mt1kx")]
+unique_name_in_owner = true

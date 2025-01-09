@@ -133,6 +133,7 @@ value = 5.0
 alignment = 2
 
 [node name="MaxNPCsInput" type="SpinBox" parent="NormalMode"]
+layout_mode = 0
 offset_left = 368.0
 offset_top = 140.0
 offset_right = 568.0
@@ -168,12 +169,73 @@ label_settings = SubResource("LabelSettings_rgbfh")
 autowrap_mode = 3
 max_lines_visible = 5
 
-[node name="ColorRect2" type="ColorRect" parent="."]
+[node name="FSMVsBTMode" type="ColorRect" parent="."]
 offset_left = 240.0
 offset_top = 400.0
 offset_right = 840.0
 offset_bottom = 800.0
-color = Color(0, 0.505882, 0.505882, 1)
+color = Color(0.28186, 0.335417, 0.538887, 1)
+
+[node name="CenterContainer" type="CenterContainer" parent="FSMVsBTMode"]
+layout_mode = 0
+offset_right = 598.0
+offset_bottom = 59.0
+
+[node name="GameModeLabel" type="Label" parent="FSMVsBTMode/CenterContainer"]
+layout_mode = 2
+text = "Finite-State Machine vs. Behavior Tree"
+label_settings = SubResource("LabelSettings_1ucne")
+
+[node name="StartButton" type="Button" parent="FSMVsBTMode"]
+texture_filter = 1
+layout_mode = 0
+offset_left = 320.0
+offset_top = 303.0
+offset_right = 570.0
+offset_bottom = 373.0
+mouse_default_cursor_shape = 2
+theme_override_fonts/font = SubResource("SystemFont_h70ek")
+theme_override_font_sizes/font_size = 20
+theme_override_styles/hover_pressed = ExtResource("1_bq1nd")
+theme_override_styles/hover = ExtResource("2_53mi6")
+theme_override_styles/pressed = ExtResource("1_bq1nd")
+theme_override_styles/normal = ExtResource("1_og84l")
+text = "Start"
+icon = ExtResource("1_il54c")
+alignment = 0
+icon_alignment = 2
+expand_icon = true
+
+[node name="ErrorLabel" type="Label" parent="FSMVsBTMode"]
+visible = false
+layout_mode = 0
+offset_left = 19.0
+offset_top = 297.0
+offset_right = 316.0
+offset_bottom = 381.0
+theme_override_colors/font_color = Color(1, 0.188235, 0.141176, 1)
+text = "This didn't work! You need to put in valid numbers into the time period and maximum amount of NPCs fields."
+autowrap_mode = 3
+max_lines_visible = 5
+
+[node name="Timer" type="Timer" parent="FSMVsBTMode/ErrorLabel"]
+wait_time = 10.0
+one_shot = true
+
+[node name="CenterContainer2" type="CenterContainer" parent="FSMVsBTMode"]
+layout_mode = 0
+offset_top = 73.0
+offset_right = 598.0
+offset_bottom = 283.0
+
+[node name="Label" type="Label" parent="FSMVsBTMode/CenterContainer2"]
+custom_minimum_size = Vector2(550, 200)
+layout_mode = 2
+text = "In FSM vs. BT mode you will fight against two NPCs: one of them will make it's decisions based on a Finite-State Machine while the other one will make it's decisions based on a behavior tree."
+label_settings = SubResource("LabelSettings_rgbfh")
+autowrap_mode = 3
+max_lines_visible = 5
 
 [connection signal="pressed" from="NormalMode/StartButton" to="." method="_on_start_button_pressed"]
 [connection signal="timeout" from="NormalMode/ErrorLabel/Timer" to="." method="_on_error_timer_timeout"]
+[connection signal="timeout" from="FSMVsBTMode/ErrorLabel/Timer" to="." method="_on_error_timer_timeout"]

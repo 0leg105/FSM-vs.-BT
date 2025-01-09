@@ -2,6 +2,7 @@ extends Node
 class_name StateManager
 
 var current_state: Dictionary = {}
+signal state_changed(new_state)
 
 func _enter_tree() -> void:
 	self.set_state("bullets", true)
@@ -21,6 +22,8 @@ func get_state(pName: String):
 func update_state(state: String, value) -> void:
 	if not current_state.has(state):
 		push_error(state," DOES NOT EXIST IN STATES")
+	if value:
+		state_changed.emit(state)
 	set_state(state, value)
 
 func set_state(pName: String, value) -> void:

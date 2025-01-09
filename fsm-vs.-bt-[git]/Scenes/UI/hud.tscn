@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=3 uid="uid://dx4jwetbrx5xt"]
+[gd_scene load_steps=19 format=3 uid="uid://dx4jwetbrx5xt"]
 
 [ext_resource type="Texture2D" uid="uid://vqagxe2ltve6" path="res://images/1051273.png" id="1_2nrye"]
 [ext_resource type="Script" path="res://Scenes/UI/hud.gd" id="1_vcxba"]
@@ -8,6 +8,7 @@
 
 [sub_resource type="SystemFont" id="SystemFont_osctj"]
 font_names = PackedStringArray("Bahnschrift", "Arial", "Sans-Serif")
+subpixel_positioning = 0
 
 [sub_resource type="LabelSettings" id="LabelSettings_pavx5"]
 font = SubResource("SystemFont_osctj")
@@ -16,6 +17,7 @@ font_color = Color(1, 0.647059, 0, 1)
 
 [sub_resource type="SystemFont" id="SystemFont_72va4"]
 font_names = PackedStringArray("Bahnschrift", "Arial", "Sans-Serif")
+subpixel_positioning = 0
 
 [sub_resource type="LabelSettings" id="LabelSettings_0jb3u"]
 font = SubResource("SystemFont_72va4")
@@ -24,6 +26,7 @@ font_color = Color(1, 0.647059, 0, 1)
 
 [sub_resource type="SystemFont" id="SystemFont_1qgqe"]
 font_names = PackedStringArray("Bahnschrift", "Arial", "Sans-Serif")
+subpixel_positioning = 0
 
 [sub_resource type="LabelSettings" id="LabelSettings_jskqs"]
 font = SubResource("SystemFont_1qgqe")
@@ -51,7 +54,10 @@ keycode = 4194305
 [sub_resource type="Shortcut" id="Shortcut_mmi5u"]
 events = [SubResource("InputEventKey_7vl3e")]
 
-[node name="Hud" type="Node2D"]
+[sub_resource type="SystemFont" id="SystemFont_rp6jx"]
+font_names = PackedStringArray("Bahnschrift")
+
+[node name="Hud" type="Node2D" groups=["hud"]]
 process_mode = 3
 script = ExtResource("1_vcxba")
 
@@ -125,6 +131,7 @@ shortcut = SubResource("Shortcut_mmi5u")
 text = "Continue game"
 
 [node name="CenterContainer3" type="CenterContainer" parent="ColorRect"]
+layout_mode = 0
 offset_top = 207.0
 offset_right = 801.0
 offset_bottom = 335.0
@@ -137,6 +144,16 @@ theme_override_styles/pressed = ExtResource("4_u8h5v")
 theme_override_styles/normal = ExtResource("5_vh6po")
 text = "Exit Game"
 
+[node name="ShowStateButton" type="CheckButton" parent="ColorRect"]
+layout_mode = 0
+offset_left = 609.0
+offset_top = 8.0
+offset_right = 792.0
+offset_bottom = 39.0
+theme_override_fonts/font = SubResource("SystemFont_rp6jx")
+text = "Show state labels"
+
 [connection signal="pressed" from="CloseButton" to="." method="_on_close_button_pressed"]
 [connection signal="pressed" from="ColorRect/CenterContainer2/ContinueButton" to="." method="_on_continue_button_pressed"]
 [connection signal="pressed" from="ColorRect/CenterContainer3/ExitButton" to="." method="_on_exit_button_pressed"]
+[connection signal="toggled" from="ColorRect/ShowStateButton" to="." method="_on_show_state_button_toggled"]
