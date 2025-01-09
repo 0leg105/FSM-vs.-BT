@@ -56,6 +56,7 @@ events = [SubResource("InputEventKey_7vl3e")]
 
 [sub_resource type="SystemFont" id="SystemFont_rp6jx"]
 font_names = PackedStringArray("Bahnschrift")
+subpixel_positioning = 0
 
 [node name="Hud" type="Node2D" groups=["hud"]]
 process_mode = 3
