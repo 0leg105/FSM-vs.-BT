@@ -4,6 +4,7 @@ class_name FsmNpc
 @onready var fsm: FiniteStateMachine = $"Enemy Finite State Machine"
 @onready var state_label: Label = $CenterContainer/StateLabel
 @onready var nav_agent: NavigationAgent2D = $Components/MoveComponent/NavigationAgent2D
+@onready var neighbor_component: NeighborComponent = $Components/NeighborComponent
 @onready var hud: HUD
 var debug_box: Node2D
 
@@ -19,6 +20,8 @@ func _enter_tree() -> void:
 func _ready() -> void:
 	state_label.visible = hud.show_state_label
 	nav_agent.debug_enabled = hud.show_navigation
+	vision_component.visible = hud.show_vision
+	neighbor_component.visible = hud.show_neighbor_components
 
 func _process(delta: float) -> void:
 	vision_component.update()

@@ -25,6 +25,8 @@ window/size/viewport_height=1024
 fsm_npc=""
 hud=""
 navigation_agents=""
+vision_components=""
+neighbor_components=""
 
 [layer_names]
 

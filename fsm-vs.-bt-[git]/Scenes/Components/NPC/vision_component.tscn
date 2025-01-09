@@ -3,7 +3,7 @@
 [ext_resource type="Script" path="res://Scripts/Components/vision_component.gd" id="1_vdmnk"]
 [ext_resource type="PackedScene" uid="uid://dxyjq84618f7h" path="res://Scenes/Components/triangle_vision.tscn" id="2_8kumo"]
 
-[node name="VisionComponent" type="Node2D"]
+[node name="VisionComponent" type="Node2D" groups=["vision_components"]]
 script = ExtResource("1_vdmnk")
 
 [node name="Area2D" type="Area2D" parent="."]

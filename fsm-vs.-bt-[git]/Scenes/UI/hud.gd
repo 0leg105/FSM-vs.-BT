@@ -3,6 +3,21 @@ extends Node2D
 
 @onready var pause_menu = $ColorRect
 @onready var close_button = $CloseButton
+
+var show_neighbor_components: bool = false :
+	set(value):
+		show_neighbor_components = value
+		var neighbor_components = get_tree().get_nodes_in_group("neighbor_components")
+		for neighbor in neighbor_components:
+			(neighbor as NeighborComponent).visible = value
+
+var show_vision: bool = false :
+	set(value):
+		show_vision = value
+		var vision_components = get_tree().get_nodes_in_group("vision_components")
+		for vision in vision_components:
+			(vision as VisionComponent).visible = value
+
 var show_navigation: bool = false :
 	set(value):
 		show_navigation = value
@@ -41,3 +56,9 @@ func _on_show_state_button_toggled(toggled_on: bool) -> void:
 
 func _on_show_navigation_routes_button_toggled(toggled_on: bool) -> void:
 	show_navigation = toggled_on
+
+func _on_show_vision_button_toggled(toggled_on: bool) -> void:
+	show_vision = toggled_on
+
+func _on_show_neighbors_button_toggled(toggled_on: bool) -> void:
+	show_neighbor_components = toggled_on
