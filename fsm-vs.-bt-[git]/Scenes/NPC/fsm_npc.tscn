@@ -96,3 +96,5 @@ offset_bottom = -111.0
 layout_mode = 2
 text = "Current State"
 label_settings = SubResource("LabelSettings_0xmtn")
+
+[connection signal="state_changed" from="Enemy Finite State Machine" to="." method="_on_state_changed"]

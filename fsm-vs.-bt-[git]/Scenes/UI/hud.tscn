@@ -151,6 +151,7 @@ theme_override_styles/normal = ExtResource("5_vh6po")
 text = "Exit Game"
 
 [node name="Settings" type="ColorRect" parent="Menu"]
+layout_mode = 0
 offset_left = 800.0
 offset_right = 1050.0
 offset_bottom = 160.0
@@ -193,6 +194,7 @@ theme_override_fonts/font = SubResource("SystemFont_rp6jx")
 text = "Show meele range"
 
 [node name="CenterContainer" type="CenterContainer" parent="Menu/Settings"]
+layout_mode = 0
 offset_right = 250.0
 offset_bottom = 42.0
 

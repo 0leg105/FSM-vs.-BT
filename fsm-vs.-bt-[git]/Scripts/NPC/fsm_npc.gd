@@ -15,13 +15,13 @@ func _enter_tree() -> void:
 	super._enter_tree()
 	debug_box = get_tree().get_first_node_in_group("DebugBox")
 	hud = global_coordinator.hud
-	state_manager.state_changed.connect(_on_state_changed)
 
 func _ready() -> void:
 	state_label.visible = hud.show_state_label
 	nav_agent.debug_enabled = hud.show_navigation
 	vision_component.visible = hud.show_vision
 	neighbor_component.visible = hud.show_neighbor_components
+	state_label.text = fsm.current_state.state_name
 
 func _process(delta: float) -> void:
 	vision_component.update()
