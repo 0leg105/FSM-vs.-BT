@@ -12,6 +12,9 @@ func enter():
 func exit():
 	pass
 
+func _ready():
+	color = Color("4a86e8", color_alpha)
+
 func update(_delta:float):
 	target_position = player_block_component.get_player_block().get_pos()
 	state_manager.update_state("look_pos", target_position)

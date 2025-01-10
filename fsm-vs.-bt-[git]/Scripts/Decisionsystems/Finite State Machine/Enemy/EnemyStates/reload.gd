@@ -9,6 +9,9 @@ func enter():
 func exit():
 	pass
 
+func _ready():
+	color = Color("ff9900", color_alpha)
+
 func update(_delta: float):
 	shoot_component.reload_gun()
 	if state_manager.get_state("bullets"):

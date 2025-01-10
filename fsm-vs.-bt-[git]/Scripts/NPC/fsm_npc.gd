@@ -10,6 +10,7 @@ var debug_box: Node2D
 
 func _on_state_changed(new_state):
 	state_label.text = new_state
+	neighbor_component.collision_shape.debug_color = fsm.current_state.color
 
 func _enter_tree() -> void:
 	super._enter_tree()
@@ -22,6 +23,7 @@ func _ready() -> void:
 	vision_component.visible = hud.show_vision
 	neighbor_component.visible = hud.show_neighbor_components
 	state_label.text = fsm.current_state.state_name
+	neighbor_component.collision_shape.debug_color = fsm.current_state.color
 
 func _process(delta: float) -> void:
 	vision_component.update()

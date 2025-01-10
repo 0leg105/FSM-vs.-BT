@@ -13,9 +13,9 @@ collision_layer = 0
 collision_mask = 2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
-modulate = Color(0, 0.894118, 0, 1)
 show_behind_parent = true
 shape = SubResource("CircleShape2D_joh0p")
+debug_color = Color(0, 0.647059, 0.164706, 0.619608)
 
 [connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
 [connection signal="body_exited" from="Area2D" to="." method="_on_area_2d_body_exited"]

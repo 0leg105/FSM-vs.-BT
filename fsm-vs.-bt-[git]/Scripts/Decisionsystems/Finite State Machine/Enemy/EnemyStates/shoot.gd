@@ -9,6 +9,9 @@ func enter():
 func exit():
 	pass
 
+func _ready():
+	color = Color("ff0000", color_alpha)
+
 func update(_delta: float):
 	state_manager.update_state("look_at", state_manager.get_state("last_seen_player_pos"))
 	shoot_component.shoot_player()

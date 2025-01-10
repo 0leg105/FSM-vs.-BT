@@ -5,6 +5,8 @@ var character_body: CharacterBody2D
 var fsm: FiniteStateMachine
 var state_manager: StateManager
 var state_name: String
+var color: Color
+var color_alpha: float = 0.3
 
 func _enter_tree() -> void:
 	character_body = get_parent().get_parent()
