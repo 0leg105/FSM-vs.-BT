@@ -30,5 +30,5 @@ func _process(delta: float) -> void:
 	fsm.update(delta)
 	look_at_component.look_at_pos(state_manager.get_state("look_at"))
 
-func increment_fsm_hits() -> void:
+func increment_hits() -> void:
 	global_coordinator.increment_fsm_hits()

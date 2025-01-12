@@ -24,7 +24,7 @@ func _on_shoot_timer_timeout() -> void:
 		var hit = ray_cast.get_collider()
 		if hit.is_in_group("Player"):
 			#print(hit.name, " Shoot")
-			character_body.increment_fsm_hits()
+			character_body.increment_hits()
 
 func reload_gun() -> void:
 	if reload_timer.is_stopped():

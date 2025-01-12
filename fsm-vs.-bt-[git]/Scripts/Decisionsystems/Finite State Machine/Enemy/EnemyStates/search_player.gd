@@ -17,7 +17,7 @@ func _ready():
 
 func update(_delta:float):
 	target_position = player_block_component.get_player_block().get_pos()
-	state_manager.update_state("look_pos", target_position)
+	state_manager.update_state("look_at", target_position)
 	if character_body.global_position.distance_to(target_position) > TOLERANCE:
 		move_component.go_to_position(target_position)
 	else:

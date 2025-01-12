@@ -14,5 +14,4 @@ func _on_timer_timeout() -> void:
 	if ray_cast.is_colliding():
 		var hit = ray_cast.get_collider()
 		if hit.is_in_group("Player"):
-			#print(hit.name, " meleed")
-			character_body.increment_fsm_hits()
+			character_body.increment_hits()

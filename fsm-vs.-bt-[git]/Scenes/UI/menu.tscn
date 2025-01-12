@@ -239,4 +239,5 @@ max_lines_visible = 5
 
 [connection signal="pressed" from="NormalMode/StartButton" to="." method="_on_start_button_pressed"]
 [connection signal="timeout" from="NormalMode/ErrorLabel/Timer" to="." method="_on_error_timer_timeout"]
+[connection signal="pressed" from="FSMVsBTMode/StartButton" to="." method="_on_second_start_button_pressed"]
 [connection signal="timeout" from="FSMVsBTMode/ErrorLabel/Timer" to="." method="_on_error_timer_timeout"]

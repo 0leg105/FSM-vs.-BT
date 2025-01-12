@@ -11,7 +11,7 @@ config_version=5
 [application]
 
 config/name="FSM vs. BT [GIT]"
-run/main_scene="res://Scenes/UI/menu.tscn"
+run/main_scene="res://Scenes/Demos/fsm_vs__bt_demo.tscn"
 config/features=PackedStringArray("4.3", "Forward Plus")
 config/icon="res://images/icon.svg"
 

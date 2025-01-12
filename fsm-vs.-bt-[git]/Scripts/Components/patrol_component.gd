@@ -12,7 +12,7 @@ func _enter_tree() -> void:
 	move_component = character_body.get_move_component()
 	patrol_nodes = character_body.get_patrol_nodes()
 
-func get_patrol_node_pos() -> Vector2:
+func get_patrol_node_pos() -> Vector2: 
 	if not initialized:
 		current_node_index = get_shortest_node()
 		initialized = true

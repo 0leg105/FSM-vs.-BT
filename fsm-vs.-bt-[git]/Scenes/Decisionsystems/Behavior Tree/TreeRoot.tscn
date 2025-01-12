@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://d117yx0s8ler6"]
+
+[ext_resource type="Script" path="res://Scripts/Decisionsystems/Behavior Tree/bt_root.gd" id="1_5oe7h"]
+
+[node name="TreeRoot" type="Node"]
+script = ExtResource("1_5oe7h")

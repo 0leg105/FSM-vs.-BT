@@ -17,7 +17,6 @@ func _enter_tree() -> void:
 	timer.start()
 
 func spawn_npc() -> void:
-	print("spawn")
 	var instance = npc.instantiate()
 	add_child(instance)
 

@@ -1,13 +1,23 @@
-[gd_scene load_steps=13 format=3 uid="uid://bxt0hiitqfo82"]
+[gd_scene load_steps=23 format=3 uid="uid://bxt0hiitqfo82"]
 
 [ext_resource type="Script" path="res://Scripts/NPC/bt_npc.gd" id="1_kfl76"]
 [ext_resource type="PackedScene" uid="uid://cv6d8u23jbp7q" path="res://Scenes/Manager/state_manager.tscn" id="1_xsfom"]
 [ext_resource type="PackedScene" uid="uid://b3fhiewtn54gx" path="res://Scenes/Components/NPC/move_component.tscn" id="2_60w8x"]
+[ext_resource type="Script" path="res://Scripts/Decisionsystems/Behavior Tree/behavior_tree.gd" id="2_r6bv0"]
+[ext_resource type="Script" path="res://Scripts/Decisionsystems/Behavior Tree/bt_root.gd" id="3_hxkwx"]
 [ext_resource type="PackedScene" uid="uid://b35x0alftv7nc" path="res://Scenes/Components/NPC/vision_component.tscn" id="3_wkigv"]
+[ext_resource type="Script" path="res://Scripts/Decisionsystems/Behavior Tree/composites/selector.gd" id="4_kl464"]
 [ext_resource type="PackedScene" uid="uid://2qlx2g8rkbf1" path="res://Scenes/Components/NPC/player_block_component.tscn" id="4_lm1ms"]
+[ext_resource type="Script" path="res://Scripts/Decisionsystems/Behavior Tree/composites/sequence.gd" id="5_68s3l"]
 [ext_resource type="PackedScene" uid="uid://q274n447urai" path="res://Scenes/Components/NPC/look_at_component.tscn" id="5_ivpfp"]
+[ext_resource type="Script" path="res://Scripts/Decisionsystems/Behavior Tree/Enemy Actions/Patrol.gd" id="6_60i10"]
+[ext_resource type="Script" path="res://Scripts/Decisionsystems/Behavior Tree/Enemy Actions/shoot.gd" id="6_k8lqn"]
+[ext_resource type="Script" path="res://Scripts/Decisionsystems/Behavior Tree/Enemy Actions/melee.gd" id="6_skrfl"]
+[ext_resource type="Script" path="res://Scripts/Decisionsystems/Behavior Tree/Enemy Conditions/player_visible_condition.gd" id="6_tl6ov"]
 [ext_resource type="PackedScene" uid="uid://bk78pfbavd81i" path="res://Scenes/Components/NPC/melee_component.tscn" id="6_upolc"]
 [ext_resource type="PackedScene" uid="uid://cwts430jak01v" path="res://Scenes/Components/NPC/shoot_component.tscn" id="7_63ljq"]
+[ext_resource type="Script" path="res://Scripts/Decisionsystems/Behavior Tree/Enemy Actions/Search Player.gd" id="7_s8rpo"]
+[ext_resource type="Script" path="res://Scripts/Decisionsystems/Behavior Tree/Enemy Actions/reload.gd" id="8_egyhs"]
 [ext_resource type="PackedScene" uid="uid://cctjop4oihtr7" path="res://Scenes/Components/NPC/patrol_component.tscn" id="8_moobo"]
 [ext_resource type="PackedScene" uid="uid://dh7afqna0d576" path="res://Scenes/Components/NPC/neighbor_component.tscn" id="9_p6ua1"]
 [ext_resource type="Texture2D" uid="uid://cmtrun1dyxr4r" path="res://images/icon_pink.png" id="10_7s150"]
@@ -16,10 +26,64 @@
 radius = 88.45
 
 [node name="BT NPC" type="CharacterBody2D"]
-collision_mask = 0
+scale = Vector2(0.25, 0.25)
+collision_mask = 4
 script = ExtResource("1_kfl76")
 
 [node name="StateManager" parent="." instance=ExtResource("1_xsfom")]
+
+[node name="BehaviorTree" type="Node" parent="."]
+script = ExtResource("2_r6bv0")
+
+[node name="TreeRoot" type="Node" parent="BehaviorTree"]
+script = ExtResource("3_hxkwx")
+
+[node name="FirstSelector" type="Node" parent="BehaviorTree/TreeRoot"]
+script = ExtResource("4_kl464")
+
+[node name="MeleeSequence" type="Node" parent="BehaviorTree/TreeRoot/FirstSelector"]
+script = ExtResource("5_68s3l")
+
+[node name="melee" type="Node" parent="BehaviorTree/TreeRoot/FirstSelector/MeleeSequence" node_paths=PackedStringArray("character_body", "melee_component")]
+script = ExtResource("6_skrfl")
+character_body = NodePath("../../../../..")
+melee_component = NodePath("../../../../../Components/MeleeComponent")
+
+[node name="PlayerNear" type="Node" parent="BehaviorTree/TreeRoot/FirstSelector"]
+script = ExtResource("5_68s3l")
+
+[node name="Shoot" type="Node" parent="BehaviorTree/TreeRoot/FirstSelector/PlayerNear" node_paths=PackedStringArray("shoot_component", "character_body")]
+script = ExtResource("6_k8lqn")
+shoot_component = NodePath("../../../../../Components/ShootComponent")
+character_body = NodePath("../../../../..")
+
+[node name="reload" type="Node" parent="BehaviorTree/TreeRoot/FirstSelector/PlayerNear" node_paths=PackedStringArray("shoot_component", "character_body")]
+script = ExtResource("8_egyhs")
+shoot_component = NodePath("../../../../../Components/ShootComponent")
+character_body = NodePath("../../../../..")
+
+[node name="SearchingSequence" type="Node" parent="BehaviorTree/TreeRoot/FirstSelector"]
+script = ExtResource("5_68s3l")
+
+[node name="PlayerVisible" type="Node" parent="BehaviorTree/TreeRoot/FirstSelector/SearchingSequence" node_paths=PackedStringArray("vision_component", "character_body")]
+script = ExtResource("6_tl6ov")
+vision_component = NodePath("../../../../../Components/VisionComponent")
+character_body = NodePath("../../../../..")
+
+[node name="SearchPlayer" type="Node" parent="BehaviorTree/TreeRoot/FirstSelector/SearchingSequence" node_paths=PackedStringArray("character_body", "move_component", "player_block_component")]
+script = ExtResource("7_s8rpo")
+character_body = NodePath("../../../../..")
+move_component = NodePath("../../../../../Components/MoveComponent")
+player_block_component = NodePath("../../../../../Components/PlayerBlockComponent")
+
+[node name="PatrolSequence" type="Node" parent="BehaviorTree/TreeRoot/FirstSelector"]
+script = ExtResource("5_68s3l")
+
+[node name="Patrol" type="Node" parent="BehaviorTree/TreeRoot/FirstSelector/PatrolSequence" node_paths=PackedStringArray("character_body", "patrol_component", "move_component")]
+script = ExtResource("6_60i10")
+character_body = NodePath("../../../../..")
+patrol_component = NodePath("../../../../../Components/PatrolComponent")
+move_component = NodePath("../../../../../Components/MoveComponent")
 
 [node name="Components" type="Node2D" parent="."]
 
@@ -31,8 +95,9 @@ scale = Vector2(10, 10)
 
 [node name="PlayerBlockComponent" parent="Components" instance=ExtResource("4_lm1ms")]
 
-[node name="LookAtComponent" parent="Components" node_paths=PackedStringArray("body") instance=ExtResource("5_ivpfp")]
+[node name="LookAtComponent" parent="Components" node_paths=PackedStringArray("body", "sprite") instance=ExtResource("5_ivpfp")]
 body = NodePath("..")
+sprite = NodePath("../../Sprite2D")
 
 [node name="MeleeComponent" parent="Components" instance=ExtResource("6_upolc")]
 scale = Vector2(2, 2)
@@ -44,6 +109,7 @@ scale = Vector2(3.5, 3.5)
 [node name="PatrolComponent" parent="Components" instance=ExtResource("8_moobo")]
 
 [node name="NeighborComponent" parent="Components" instance=ExtResource("9_p6ua1")]
+visible = false
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(-0.5, 0)

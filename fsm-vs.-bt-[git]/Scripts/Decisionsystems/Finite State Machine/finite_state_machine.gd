@@ -39,7 +39,7 @@ func change_state(source_state: State, new_state_name: String) -> void:
 	# Eingehen in den new_state
 	new_state.enter()
 	# Debug für State-Wechsel für NPC
-	if(current_state.name != new_state.name):
-		print(current_state.name, " -> ", new_state.name)
+	#if(current_state.name != new_state.name):
+		#print(current_state.name, " -> ", new_state.name)
 	current_state = new_state
 	state_changed.emit(new_state_name)

@@ -27,7 +27,7 @@ font_size = 50
 
 [node name="FSM NPC" type="CharacterBody2D" groups=["fsm_npc"]]
 scale = Vector2(0.25, 0.25)
-collision_mask = 0
+collision_mask = 4
 script = ExtResource("1_c8psb")
 
 [node name="StateManager" parent="." instance=ExtResource("2_so42k")]
