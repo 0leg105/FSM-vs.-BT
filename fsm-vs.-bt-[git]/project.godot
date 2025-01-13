@@ -27,6 +27,7 @@ hud=""
 navigation_agents=""
 vision_components=""
 neighbor_components=""
+bt_npc=""
 
 [layer_names]
 

@@ -1,4 +1,4 @@
-[gd_scene load_steps=23 format=3 uid="uid://bxt0hiitqfo82"]
+[gd_scene load_steps=25 format=3 uid="uid://bxt0hiitqfo82"]
 
 [ext_resource type="Script" path="res://Scripts/NPC/bt_npc.gd" id="1_kfl76"]
 [ext_resource type="PackedScene" uid="uid://cv6d8u23jbp7q" path="res://Scenes/Manager/state_manager.tscn" id="1_xsfom"]
@@ -25,7 +25,14 @@
 [sub_resource type="CircleShape2D" id="CircleShape2D_jqilp"]
 radius = 88.45
 
-[node name="BT NPC" type="CharacterBody2D"]
+[sub_resource type="SystemFont" id="SystemFont_pl2h2"]
+font_names = PackedStringArray("Bahnschrift", "Arial", "Sans-Serif")
+
+[sub_resource type="LabelSettings" id="LabelSettings_33u0y"]
+font = SubResource("SystemFont_pl2h2")
+font_size = 50
+
+[node name="BT NPC" type="CharacterBody2D" groups=["bt_npc"]]
 scale = Vector2(0.25, 0.25)
 collision_mask = 4
 script = ExtResource("1_kfl76")
@@ -109,7 +116,6 @@ scale = Vector2(3.5, 3.5)
 [node name="PatrolComponent" parent="Components" instance=ExtResource("8_moobo")]
 
 [node name="NeighborComponent" parent="Components" instance=ExtResource("9_p6ua1")]
-visible = false
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(-0.5, 0)
@@ -117,3 +123,14 @@ shape = SubResource("CircleShape2D_jqilp")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture = ExtResource("10_7s150")
+
+[node name="CenterContainer" type="CenterContainer" parent="."]
+offset_left = -404.0
+offset_top = -180.0
+offset_right = 404.0
+offset_bottom = -129.0
+
+[node name="BehaviorLabel" type="Label" parent="CenterContainer"]
+layout_mode = 2
+text = "Test"
+label_settings = SubResource("LabelSettings_33u0y")

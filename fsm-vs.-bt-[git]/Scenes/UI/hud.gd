@@ -31,6 +31,9 @@ var show_state_label: bool = false :
 		for npc in get_tree().get_nodes_in_group("fsm_npc"):
 			npc.state_label.visible = value
 			npc.state_label.text = npc.fsm.current_state.name
+		for npc in get_tree().get_nodes_in_group("bt_npc"):
+			npc.leaf_label.visible = value
+			npc.leaf_label.text = npc.current_leaf
 
 func _on_close_button_pressed() -> void:
 	get_tree().paused = true
