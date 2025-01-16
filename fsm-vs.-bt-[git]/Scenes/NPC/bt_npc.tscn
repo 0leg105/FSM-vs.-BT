@@ -27,6 +27,7 @@ radius = 88.45
 
 [sub_resource type="SystemFont" id="SystemFont_pl2h2"]
 font_names = PackedStringArray("Bahnschrift", "Arial", "Sans-Serif")
+subpixel_positioning = 0
 
 [sub_resource type="LabelSettings" id="LabelSettings_33u0y"]
 font = SubResource("SystemFont_pl2h2")

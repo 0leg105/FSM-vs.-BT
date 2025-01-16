@@ -177,6 +177,7 @@ autowrap_mode = 3
 max_lines_visible = 5
 
 [node name="AlgorithmLabel" type="Label" parent="NormalMode"]
+layout_mode = 0
 offset_left = 30.0
 offset_top = 223.0
 offset_right = 272.0
@@ -195,6 +196,7 @@ button_pressed = true
 text = "Finite-State Machine"
 
 [node name="BTCheckButton" type="CheckButton" parent="NormalMode"]
+layout_mode = 0
 offset_left = 361.0
 offset_top = 243.0
 offset_right = 568.0

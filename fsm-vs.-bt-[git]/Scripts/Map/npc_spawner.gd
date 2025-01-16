@@ -25,9 +25,6 @@ func _on_timer_timeout() -> void:
 		spawn_npc()
 		current_npc_count += 1
 
-# Derzeit nicht benutzt
-#func set_max_npc_count(max_npc_count: int) -> void:
-	#self.max_npc_count = max_npc_count
-
-#func set_npc_spawn_time(wait_time: int) -> void:
-	#self.wait_time = wait_time
+# Monitor Funktion
+func get_current_npc_count() -> int:
+	return current_npc_count
